@@ -1,58 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
-        margin: 0;
-        padding: 20px;
-    }
-    h1 {
-        color: #4CAF50;
-    }
-    .question-container {
-        background-color: #fff;
-        padding: 20px;
-        margin-bottom: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .slider {
-        width: 100%;
-    }
-    .output {
-        font-weight: bold;
-        margin-left: 10px;
-    }
-    .submit-btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .submit-btn:hover {
-        background-color: #45a049;
-    }
-</style>>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แบบประเมิน</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
         }
         .question-container {
-            margin: 20px;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .slider {
-            width: 80%;
+            width: 100%;
         }
         .output {
             font-weight: bold;
             margin-left: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -134,51 +120,26 @@
         <span id="q12Output" class="output">0</span>
     </div>
 
+    <!-- Function to update output values -->
     <script>
         function updateOutput(outputId, value) {
             document.getElementById(outputId).innerText = value;
         }
     </script> 
+    
+    <!-- Calculate score and display result -->
     <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
+    <div id="result"></div>
 
-<div id="result"></div>
-
-<script>
-    function calculateScore() {
-        const q1 = parseInt(document.getElementById('q1').value);
-        const q2 = parseInt(document.getElementById('q2').value);
-        const q3 = parseInt(document.getElementById('q3').value);
-        const q4 = parseInt(document.getElementById('q4').value);
-        const q5 = parseInt(document.getElementById('q5').value);
-        const q6 = parseInt(document.getElementById('q6').value);
-        const q7 = parseInt(document.getElementById('q7').value);
-        const q8 = parseInt(document.getElementById('q8').value);
-        const q9 = parseInt(document.getElementById('q9').value);
-        const q10 = parseInt(document.getElementById('q10').value);
-        const q11 = parseInt(document.getElementById('q11').value);
-        const q12 = parseInt(document.getElementById('q12').value);
-
-        const totalScore = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 + q11 + q12;
-        const emotionScore = q1 + q2 + q3 + q4 + q5;
-        const confidenceScore = q6 + q7 + q8 + q9 + q10;
-        const riskScore = q11 + q12;
-
-        let result = `<h2>คะแนนรวมทั้งหมด: ${totalScore}</h2>`;
-        result += `<p>คะแนน Emotion: ${emotionScore}</p>`;
-        result += `<p>คะแนน Confidence: ${confidenceScore}</p>`;
-        result += `<p>คะแนน Risk Appraisal: ${riskScore}</p>`;
-
-        if (totalScore < 65) {
-            result += `<p>แนะนำว่าไม่ควรกลับไปฝึกซ้อม</p>`;
-        } else if (totalScore >= 65 && totalScore <= 80) {
-            result += `<p>สามารถฝึกซ้อมในรูปแบบ noncontact pivot ได้</p>`;
-        } else if (totalScore > 80) {
-            result += `<p>สามารถกลับไปแข่งขันทางกีฬาได้</p>`;
-        }
-
-        document.getElementById('result').innerHTML = result;
-    }
-</script>
-
-</body>
-</html>
+    <script>
+        function calculateScore() {
+            const q1 = parseInt(document.getElementById('q1').value);
+            const q2 = parseInt(document.getElementById('q2').value);
+            const q3 = parseInt(document.getElementById('q3').value);
+            const q4 = parseInt(document.getElementById('q4').value);
+            const q5 = parseInt(document.getElementById('q5').value);
+            const q6 = parseInt(document.getElementById('q6').value);
+            const q7 = parseInt(document.getElementById('q7').value);
+            const q8 = parseInt(document.getElementById('q8').value);
+            const q9 = parseInt(document.getElementById('q9').value);
+            const q10 = parseInt(document.getElementBy
