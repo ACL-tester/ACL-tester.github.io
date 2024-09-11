@@ -142,5 +142,6 @@
             const q7 = parseInt(document.getElementById('q7').value);
             const q8 = parseInt(document.getElementById('q8').value);
             const q9 = parseInt(document.getElementById('q9').value);
-            const q10 = parseInt(document.getElementBy
-
+            const q10 = parseInt(document.getElementById('q10').value);
+            const q11 = parseInt(document.getElementById('q11').value);
+            const q12 = parseInt(document.getElementById('q12').value);
