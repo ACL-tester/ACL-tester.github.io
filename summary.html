@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุปผลแบบสอบถาม</title>
+</head>
+<body>
+
+<h2>Summary of Responses</h2>
+
+<p>คำตอบที่ 1: <span id="summaryQ1">0</span></p>
+<p>คำตอบที่ 2: <span id="summaryQ2">0</span></p>
+<p>คำตอบที่ 3: <span id="summaryQ3">0</span></p>
+<p>คำตอบที่ 4: <span id="summaryQ4">0</span></p>
+<p>คำตอบที่ 5: <span id="summaryQ5">0</span></p>
+
+<!-- เพิ่มตามจำนวนคำถาม -->
+
+<script>
+    // ฟังก์ชันนี้จะทำงานเมื่อเปิดหน้า summary.html
+    window.onload = function() {
+        const answers = JSON.parse(localStorage.getItem("surveyAnswers"));  // ดึงข้อมูลจาก localStorage
+        if (answers) {
+            document.getElementById("summaryQ1").innerText = answers.q1;
+            document.getElementById("summaryQ2").innerText = answers.q2;
+            document.getElementById("summaryQ3").innerText = answers.q3;
+            document.getElementById("summaryQ4").innerText = answers.q4;
+            document.getElementById("summaryQ5").innerText = answers.q5;
+            // เพิ่มคำตอบทั้งหมดที่ต้องการแสดง
+        } else {
+            alert("ไม่มีข้อมูลใน localStorage");
+        }
+    };
+</script>
+
+</body>
+</html>
