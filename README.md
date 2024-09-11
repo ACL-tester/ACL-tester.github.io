@@ -138,6 +138,47 @@
         function updateOutput(outputId, value) {
             document.getElementById(outputId).innerText = value;
         }
-    </script>
+    </script> 
+    <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
+
+<div id="result"></div>
+
+<script>
+    function calculateScore() {
+        const q1 = parseInt(document.getElementById('q1').value);
+        const q2 = parseInt(document.getElementById('q2').value);
+        const q3 = parseInt(document.getElementById('q3').value);
+        const q4 = parseInt(document.getElementById('q4').value);
+        const q5 = parseInt(document.getElementById('q5').value);
+        const q6 = parseInt(document.getElementById('q6').value);
+        const q7 = parseInt(document.getElementById('q7').value);
+        const q8 = parseInt(document.getElementById('q8').value);
+        const q9 = parseInt(document.getElementById('q9').value);
+        const q10 = parseInt(document.getElementById('q10').value);
+        const q11 = parseInt(document.getElementById('q11').value);
+        const q12 = parseInt(document.getElementById('q12').value);
+
+        const totalScore = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 + q11 + q12;
+        const emotionScore = q1 + q2 + q3 + q4 + q5;
+        const confidenceScore = q6 + q7 + q8 + q9 + q10;
+        const riskScore = q11 + q12;
+
+        let result = `<h2>คะแนนรวมทั้งหมด: ${totalScore}</h2>`;
+        result += `<p>คะแนน Emotion: ${emotionScore}</p>`;
+        result += `<p>คะแนน Confidence: ${confidenceScore}</p>`;
+        result += `<p>คะแนน Risk Appraisal: ${riskScore}</p>`;
+
+        if (totalScore < 65) {
+            result += `<p>แนะนำว่าไม่ควรกลับไปฝึกซ้อม</p>`;
+        } else if (totalScore >= 65 && totalScore <= 80) {
+            result += `<p>สามารถฝึกซ้อมในรูปแบบ noncontact pivot ได้</p>`;
+        } else if (totalScore > 80) {
+            result += `<p>สามารถกลับไปแข่งขันทางกีฬาได้</p>`;
+        }
+
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+
 </body>
 </html>
