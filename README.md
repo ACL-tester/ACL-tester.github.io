@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,43 +125,34 @@
         function updateOutput(outputId, value) {
             document.getElementById(outputId).innerText = value;
         }
-    <!-- Function to update output values -->
-<script>
-    function updateOutput(outputId, value) {
-        document.getElementById(outputId).innerText = value;
-    }
-</script>
 
-<!-- Calculate score and redirect to summary page -->
-<button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
+        function calculateScore() {
+            // Retrieve all values from the sliders
+            const answers = {
+                q1: parseInt(document.getElementById('q1').value),
+                q2: parseInt(document.getElementById('q2').value),
+                q3: parseInt(document.getElementById('q3').value),
+                q4: parseInt(document.getElementById('q4').value),
+                q5: parseInt(document.getElementById('q5').value),
+                q6: parseInt(document.getElementById('q6').value),
+                q7: parseInt(document.getElementById('q7').value),
+                q8: parseInt(document.getElementById('q8').value),
+                q9: parseInt(document.getElementById('q9').value),
+                q10: parseInt(document.getElementById('q10').value),
+                q11: parseInt(document.getElementById('q11').value),
+                q12: parseInt(document.getElementById('q12').value),
+            };
 
-<script>
-    function calculateScore() {
-        // Retrieve all values from the sliders
-        const q1 = parseInt(document.getElementById('q1').value);
-        const q2 = parseInt(document.getElementById('q2').value);
-        const q3 = parseInt(document.getElementById('q3').value);
-        const q4 = parseInt(document.getElementById('q4').value);
-        const q5 = parseInt(document.getElementById('q5').value);
-        const q6 = parseInt(document.getElementById('q6').value);
-        const q7 = parseInt(document.getElementById('q7').value);
-        const q8 = parseInt(document.getElementById('q8').value);
-        const q9 = parseInt(document.getElementById('q9').value);
-        const q10 = parseInt(document.getElementById('q10').value);
-        const q11 = parseInt(document.getElementById('q11').value);
-        const q12 = parseInt(document.getElementById('q12').value);
+            // Store values in localStorage for the next page
+            localStorage.setItem('surveyAnswers', JSON.stringify(answers));
 
-        // Scores based on each domain
-        const emotion = (q1 + q2 + q3 + q4 + q5) / 5;
-        const confidence = (q6 + q7 + q8 + q9 + q10) / 5;
-        const riskAppraisal = (q11 + q12) / 2;
+            // Redirect to summary page
+            window.location.href = 'summary.html';
+        }
+    </script>
 
-        // Store values in localStorage for the next page
-        localStorage.setItem('emotion', emotion);
-        localStorage.setItem('confidence', confidence);
-        localStorage.setItem('riskAppraisal', riskAppraisal);
+    <!-- Button to calculate score and redirect -->
+    <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
 
-        // Redirect to summary page
-        window.location.href = 'summary.html';
-    }
-</script>
+</body>
+</html>
