@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        color: #4CAF50;
+    }
+    .question-container {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .slider {
+        width: 100%;
+    }
+    .output {
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .submit-btn:hover {
+        background-color: #45a049;
+    }
+</style>>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แบบประเมิน</title>
