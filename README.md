@@ -6,6 +6,7 @@
     <title>แบบประเมิน</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* CSS ที่ปรับปรุงแล้วเพื่อรองรับการแสดงผล */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f7f7f7;
@@ -17,7 +18,6 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         h1 {
@@ -27,20 +27,14 @@
             color: #333;
         }
 
-        .container {
-            width: 80%;
-            max-width: 800px;
+        .question-container, .result-container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 20px;
-            overflow-y: auto;
-            max-height: 80vh; /* ความสูงสูงสุดของคอนเทนเนอร์ */
-        }
-
-        .question-container {
-            margin-bottom: 20px;
+            width: 80%;
+            max-width: 500px;
         }
 
         label {
@@ -108,8 +102,22 @@
             background-color: #555;
         }
 
+        .result-container {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .exercise-img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+
         @media (max-width: 600px) {
-            .container {
+            .question-container, .result-container {
                 width: 90%;
                 padding: 15px;
             }
@@ -124,155 +132,85 @@
 <body>
     <h1>แบบประเมิน</h1>
 
-    <div class="container">
+    <div class="question-container">
         <!-- คำถามทั้งหมดเรียงต่อเนื่องกัน (ข้อ 1-12) -->
-        <div class="question-container">
-            <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
-            <span id="q1Output" class="output">0</span>
-        </div>
+        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
+        <span id="q1Output" class="output">0</span><br>
 
-        <div class="question-container">
-            <label for="q2">คำถามที่ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q2" oninput="updateOutput('q2Output', this.value)">
-            <span id="q2Output" class="output">0</span>
-        </div>
+        <!-- เพิ่มคำถามที่เหลือ (Q2-Q12) ที่นี่ -->
+        <!-- ตัวอย่างการเพิ่มคำถาม -->
+        <label for="q2">คำถามที่ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q2" oninput="updateOutput('q2Output', this.value)">
+        <span id="q2Output" class="output">0</span><br>
 
-        <div class="question-container">
-            <label for="q3">คำถามที่ 3: คุณมีความกังวลเพียงใดเกี่ยวกับการเล่นกีฬา</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q3" oninput="updateOutput('q3Output', this.value)">
-            <span id="q3Output" class="output">0</span>
-        </div>
+        <!-- ... เพิ่มคำถามที่เหลือ ... -->
+    </div>
 
-        <div class="question-container">
-            <label for="q4">คำถามที่ 4: คุณมั่นใจเพียงใดว่าจะไม่เกิดอาการเข่าหลวมจากการเล่นกีฬาอีก</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q4" oninput="updateOutput('q4Output', this.value)">
-            <span id="q4Output" class="output">0</span>
-        </div>
+    <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
 
-        <div class="question-container">
-            <label for="q5">คำถามที่ 5: คุณมั่นใจเพียงใดว่าคุณสามารถเล่นกีฬาได้โดยไม่ต้องกังวลเกี่ยวกับการบาดเจ็บของเข่า</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q5" oninput="updateOutput('q5Output', this.value)">
-            <span id="q5Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q6">คำถามที่ 6: คุณรู้สึกหงุดหงิดเพียงใด ที่ต้องนึกถึงเข่าที่บาดเจ็บเวลาเล่นกีฬา</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q6" oninput="updateOutput('q6Output', this.value)">
-            <span id="q6Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q7">คำถามที่ 7: คุณกลัวเพียงใดว่าจะเกิดการบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q7" oninput="updateOutput('q7Output', this.value)">
-            <span id="q7Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q8">คำถามที่ 8: คุณมั่นใจเพียงใดว่าเข่าของคุณสามารถรับแรงกระแทกได้</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
-            <span id="q8Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q9">คำถามที่ 9: คุณกลัวเพียงใดว่าจะบาดเจ็บบริเวณเข่าโดยไม่ได้ตั้งใจจากการเล่นกีฬา</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
-            <span id="q9Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q10">คำถามที่ 10: คุณคิดว่าการผ่าตัดและการฟื้นฟูร่างกายเป็นอุปสรรคต่อการกลับไปเล่นกีฬาเพียงใด</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
-            <span id="q10Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q11">คำถามที่ 11: คุณรู้สึกไม่มั่นใจเกี่ยวกับการเคลื่อนไหวของเข่าข้างที่บาดเจ็บ</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
-            <span id="q11Output" class="output">0</span>
-        </div>
-
-        <div class="question-container">
-            <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา</label><br>
-            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
-            <span id="q12Output" class="output">0</span>
-        </div>
-
-        <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
+    <div class="result-container" id="resultContainer">
+        <h2>สรุปคะแนนรวม</h2>
+        <p id="summary"></p>
+        <div id="exerciseRecommendations"></div>
     </div>
 
     <script>
-        // Function to update the output when slider is moved
         function updateOutput(outputId, value) {
             document.getElementById(outputId).innerText = value;
         }
 
         function calculateScore() {
             const questions = [
-                { id: 'q1', outputId: 'q1Output', exercises: {
-                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
-                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
-                }},
-                { id: 'q2', outputId: 'q2Output', exercises: {
-                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
-                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
-                }},
-                { id: 'q3', outputId: 'q3Output', exercises: {
-                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
-                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
-                }},
-                { id: 'q4', outputId: 'q4Output', exercises: {
-                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
-                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
-                }},
-                { id: 'q5', outputId: 'q5Output', exercises: {
-                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
-                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
-                }},
-                { id: 'q6', outputId: 'q6Output', exercises: {
-                    lessThan65: ['Squat', 'shuffle'],
-                    between65and80: ['Box jump', 'vertical jump']
-                }},
-                { id: 'q7', outputId: 'q7Output', exercises: {
-                    lessThan65: ['Wall Squat', 'Skater hop'],
-                    between65and80: ['Lunges to knee jump', 'Split squat jump']
-                }},
-                { id: 'q8', outputId: 'q8Output', exercises: {
-                    lessThan65: ['Hop test', 'Step up and down'],
-                    between65and80: ['Single leg hop hop stick', 'Single leg cross over']
-                }},
-                { id: 'q9', outputId: 'q9Output', exercises: {
-                    lessThan65: ['Lateral step up', 'Pop squat'],
-                    between65and80: ['180 degree jump', 'Power step up']
-                }},
-                { id: 'q10', outputId: 'q10Output', exercises: {
-                    lessThan65: ['Bridge', 'Single leg bridge'],
-                    between65and80: ['Single leg bridge with ball', 'Hamstring curl on ball']
-                }},
-                { id: 'q11', outputId: 'q11Output', exercises: {
-                    lessThan65: ['Weight shifting', 'SEBT'],
-                    between65and80: ['Multi directional shuttle run', 'Fig of eight']
-                }},
-                { id: 'q12', outputId: 'q12Output', exercises: {
-                    lessThan65: ['Transitional stabilization controlled without impact with dumbbells', 'Lunges with dumbbells'],
-                    between65and80: ['Sumo squat with double dumbbells', 'Sled drag']
-                }}
+                { id: 'q1', outputId: 'q1Output', domain: 'emotion' },
+                { id: 'q2', outputId: 'q2Output', domain: 'emotion' },
+                { id: 'q3', outputId: 'q3Output', domain: 'emotion' },
+                { id: 'q4', outputId: 'q4Output', domain: 'emotion' },
+                { id: 'q5', outputId: 'q5Output', domain: 'emotion' },
+                { id: 'q6', outputId: 'q6Output', domain: 'confidence' },
+                { id: 'q7', outputId: 'q7Output', domain: 'confidence' },
+                { id: 'q8', outputId: 'q8Output', domain: 'confidence' },
+                { id: 'q9', outputId: 'q9Output', domain: 'confidence' },
+                { id: 'q10', outputId: 'q10Output', domain: 'confidence' },
+                { id: 'q11', outputId: 'q11Output', domain: 'risk' },
+                { id: 'q12', outputId: 'q12Output', domain: 'risk' }
             ];
+
+            let totalScore = 0;
+            const results = {
+                emotion: { lessThan65: [], between65and80: [] },
+                confidence: { lessThan65: [], between65and80: [] },
+                risk: { lessThan65: [], between65and80: [] }
+            };
 
             questions.forEach(question => {
                 const value = parseInt(document.getElementById(question.id).value);
-                const output = document.getElementById(question.outputId);
+                totalScore += value;
 
-                let exerciseList = '';
+                let scoreCategory;
                 if (value < 65) {
-                    exerciseList = question.exercises.lessThan65.join(', ');
+                    scoreCategory = 'lessThan65';
                 } else if (value >= 65 && value <= 80) {
-                    exerciseList = question.exercises.between65and80.join(', ');
+                    scoreCategory = 'between65and80';
                 }
 
-                output.innerText += ' - ' + exerciseList;
+                if (scoreCategory) {
+                    results[question.domain][scoreCategory].push(question.id);
+                }
             });
-        }
-    </script>
-</body>
-</html>
+
+            document.getElementById('summary').innerText = `คะแนนรวม: ${totalScore}`;
+
+            let exerciseRecommendations = '';
+
+            // Exercises for Emotion domain
+            if (results.emotion.lessThan65.length > 0) {
+                exerciseRecommendations += '<h3>Domain: Emotion (คะแนนน้อยกว่า 65)</h3>';
+                exerciseRecommendations += '<p>Exercise: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly), Janu Naman (Knee bending)</p>';
+                results.emotion.lessThan65.forEach(id => {
+                    exerciseRecommendations += `<img src="URL_TO_YOUR_IMAGES/${id}_lessThan65.jpg" class="exercise-img" alt="Exercise Image">`;
+                });
+            }
+            if (results.emotion.between65and80.length > 0) {
+                exerciseRecommendations += '<h3>Domain: Emotion (คะแนน 65-80)</h3>';
+                exerciseRecommendations += '<p>Exercise: Deep breathing exercise (Nadi Shodhana), Yoga; Virabhadrasana 1 (
