@@ -1,53 +1,3 @@
-ข้อ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม  
-  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
-  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
- 
- ข้อ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา   
-  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
-  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
-
- ข้อ 3: คุณมีความกังวลเพียงใดเกี่ยวกับการเล่นกีฬา 
-  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
-  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
-
- ข้อ 4: คุณมั่นใจเพียงใดว่าจะไม่เกิดอาการเข่าหลวมจากการเล่นกีฬาอีก ได้ต่ำกว่า 65 คะแนน 
-  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
-  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
-
- ข้อ 5: คุณมั่นใจเพียงใดว่าคุณสามารถเล่นกีฬาได้โดยไม่ต้องกังวลเกี่ยวกับการบาดเจ็บของเข่า ถ้าไม่ผ่าน 
-    - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
-  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
- 
-- Confidence in performance: 
- ข้อ 6: คุณรู้สึกหงุดหงิดเพียงใด ที่ต้องนึกถึงเข่าที่บาดเจ็บเวลาเล่นกีฬา 
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน: Squat, shuffle
-  - คะแนนตั้งแต่ 65-80 คะแนน: Box jump, vertical jump 
- 
- ข้อ 7: คุณกลัวเพียงใดว่าจะเกิดการบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน: Wall Squat, Skater hop   
-  - คะแนนตั้งแต่ 65-80 คะแนน: Lunges to knee jump, Spilt squat jump  
-
- ข้อ 8: คุณมั่นใจเพียงใดว่าเข่าของคุณสามารถรับแรงกระแทกได้
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Hop test, Step up and down
-  - คะแนนตั้งแต่ 65-80 คะแนน; Single leg hop hop stick, Single leg cross over
-
- ข้อ 9: คุณกลัวเพียงใดว่าจะบาดเจ็บบริเวณเข่าโดยไม่ได้ตั้งใจจากการเล่นกีฬา
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน Lateral step up, Pop squat 
-  - คะแนนตั้งแต่ 65-80 คะแนน 180 degree jump, Power step up 
-
- ข้อ 10: คุณคิดว่าการผ่าตัดและการฟื้นฟูร่างกายเป็นอุปสรรคต่อการกลับไปเล่นกีฬาเพียงใด
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Bridge, Single leg bridge
-  - คะแนนตั้งแต่ 65-80 คะแนน; Single leg bridge with ball, Hamstring curl on ball
-
-- Risk appraisal:
- ข้อ 11.: คุณมั่นใจเพียงใดว่าจะแสดงความสามารถทางกีฬาได้อย่างดี 
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Weight shifting, SEBT
-  - คะแนนตั้งแต่ 65-80 คะแนน; Multi directional shuttle run, Fig of eight
-
- ข้อ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา
-  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells
-  - คะแนนตั้งแต่ 65-80 คะแนน; Sumo squat with double dumbbells, Sled drag
-จากคำถาม 12 ข้อช่วยเอามาใส่ใน code ต่อไปนี้ทีคือ
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -204,7 +154,41 @@
         <span id="q6Output" class="output">0</span>
     </div>
 
-    <!-- เพิ่มคำถามจนถึงข้อที่ 12 -->
+    <div class="question-container">
+        <label for="q7">คำถามที่ 7: คุณกลัวเพียงใดว่าจะเกิดการบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q7" oninput="updateOutput('q7Output', this.value)">
+        <span id="q7Output" class="output">0</span>
+    </div>
+
+    <div class="question-container">
+        <label for="q8">คำถามที่ 8: คุณมั่นใจเพียงใดว่าเข่าของคุณสามารถรับแรงกระแทกได้</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
+        <span id="q8Output" class="output">0</span>
+    </div>
+
+    <div class="question-container">
+        <label for="q9">คำถามที่ 9: คุณกลัวเพียงใดว่าจะบาดเจ็บบริเวณเข่าโดยไม่ได้ตั้งใจจากการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
+        <span id="q9Output" class="output">0</span>
+    </div>
+
+    <div class="question-container">
+        <label for="q10">คำถามที่ 10: คุณคิดว่าการผ่าตัดและการฟื้นฟูร่างกายเป็นอุปสรรคต่อการกลับไปเล่นกีฬาเพียงใด</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
+        <span id="q10Output" class="output">0</span>
+    </div>
+
+    <div class="question-container">
+        <label for="q11">คำถามที่ 11: คุณมั่นใจเพียงใดว่าจะแสดงความสามารถทางกีฬาได้อย่างดี</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
+        <span id="q11Output" class="output">0</span>
+    </div>
+
+    <div class="question-container">
+        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
+        <span id="q12Output" class="output">0</span>
+    </div>
 
     <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
 
@@ -212,6 +196,73 @@
         // Function to update the output when slider is moved
         function updateOutput(outputId, value) {
             document.getElementById(outputId).innerText = value;
+        }
+
+        function calculateScore() {
+            const questions = [
+                { id: 'q1', outputId: 'q1Output', exercises: {
+                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
+                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
+                }},
+                { id: 'q2', outputId: 'q2Output', exercises: {
+                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
+                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
+                }},
+                { id: 'q3', outputId: 'q3Output', exercises: {
+                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
+                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
+                }},
+                { id: 'q4', outputId: 'q4Output', exercises: {
+                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
+                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
+                }},
+                { id: 'q5', outputId: 'q5Output', exercises: {
+                    lessThan65: ['Imagery + Progressive relaxation', 'Pawanmuktasana series; Goolf Nama (Ankle bending)', 'Goolf Chakra (Ankle rotation)', 'Poorna Titali (Full butterfly)', 'Janu Naman (Knee bending)'],
+                    between65and80: ['Deep breathing exercise (Nadi Shodhana)', 'Yoga; Virabhadrasana 1 (Warrior 1 pose)', 'Virabhadrasana 2 (Warrior 2 pose)', 'Savasana']
+                }},
+                { id: 'q6', outputId: 'q6Output', exercises: {
+                    lessThan65: ['Squat', 'shuffle'],
+                    between65and80: ['Box jump', 'vertical jump']
+                }},
+                { id: 'q7', outputId: 'q7Output', exercises: {
+                    lessThan65: ['Wall Squat', 'Skater hop'],
+                    between65and80: ['Lunges to knee jump', 'Split squat jump']
+                }},
+                { id: 'q8', outputId: 'q8Output', exercises: {
+                    lessThan65: ['Hop test', 'Step up and down'],
+                    between65and80: ['Single leg hop hop stick', 'Single leg cross over']
+                }},
+                { id: 'q9', outputId: 'q9Output', exercises: {
+                    lessThan65: ['Lateral step up', 'Pop squat'],
+                    between65and80: ['180 degree jump', 'Power step up']
+                }},
+                { id: 'q10', outputId: 'q10Output', exercises: {
+                    lessThan65: ['Bridge', 'Single leg bridge'],
+                    between65and80: ['Single leg bridge with ball', 'Hamstring curl on ball']
+                }},
+                { id: 'q11', outputId: 'q11Output', exercises: {
+                    lessThan65: ['Weight shifting', 'SEBT'],
+                    between65and80: ['Multi directional shuttle run', 'Fig of eight']
+                }},
+                { id: 'q12', outputId: 'q12Output', exercises: {
+                    lessThan65: ['Transitional stabilization controlled without impact with dumbbells', 'Lunges with dumbbells'],
+                    between65and80: ['Sumo squat with double dumbbells', 'Sled drag']
+                }}
+            ];
+
+            questions.forEach(question => {
+                const value = parseInt(document.getElementById(question.id).value);
+                const output = document.getElementById(question.outputId);
+
+                let exerciseList = '';
+                if (value < 65) {
+                    exerciseList = question.exercises.lessThan65.join(', ');
+                } else if (value >= 65 && value <= 80) {
+                    exerciseList = question.exercises.between65and80.join(', ');
+                }
+
+                output.innerText += ' - ' + exerciseList;
+            });
         }
     </script>
 </body>
