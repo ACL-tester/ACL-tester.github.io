@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลการประเมิน</title>
+    <title>แบบประเมิน</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -40,15 +40,59 @@
             align-items: center;
         }
 
-        .exercise-img {
-            max-width: 100%;
-            height: auto;
-            margin: 10px 0;
+        label {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            display: block;
+            color: #555;
+            text-align: center;
         }
 
-        .back-to-chatbot-btn {
+        .slider {
+            width: 100%;
+            margin: 10px 0;
+            height: 8px;
+            appearance: none;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s ease;
+        }
+
+        .slider:hover {
+            background: #ccc;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .output {
             font-size: 1.2rem;
-            background-color: #28a745;
+            font-weight: 600;
+            color: #333;
+            margin-left: 10px;
+        }
+
+        .submit-btn {
+            font-size: 1.2rem;
+            background-color: #333;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -58,56 +102,160 @@
             margin-top: 20px;
         }
 
-        .back-to-chatbot-btn:hover {
-            background-color: #218838;
+        .submit-btn:hover {
+            background-color: #555;
         }
 
-        .result {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
+        .result-container {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .exercise-img {
+            max-width: 100%;
+            height: auto;
             margin: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>ผลการประเมิน</h1>
+    <h1>แบบประเมิน</h1>
+
     <div class="container">
-        <div id="results">
-            <!-- Placeholder for results -->
-            <div class="result" id="failedQuestions">
-                <!-- Results will be inserted here -->
-            </div>
+        <!-- Add all 12 questions -->
+        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
+        <span id="q1Output" class="output">0</span><br>
+
+        <label for="q2">คำถามที่ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q2" oninput="updateOutput('q2Output', this.value)">
+        <span id="q2Output" class="output">0</span><br>
+
+        <label for="q3">คำถามที่ 3: คุณมีความกังวลเพียงใดเกี่ยวกับการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q3" oninput="updateOutput('q3Output', this.value)">
+        <span id="q3Output" class="output">0</span><br>
+
+        <label for="q4">คำถามที่ 4: คุณมั่นใจเพียงใดว่าจะไม่เกิดอาการเข่าหลวมจากการเล่นกีฬาอีก</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q4" oninput="updateOutput('q4Output', this.value)">
+        <span id="q4Output" class="output">0</span><br>
+
+        <label for="q5">คำถามที่ 5: คุณมั่นใจเพียงใดว่าคุณสามารถเล่นกีฬาได้โดยไม่ต้องกังวลเกี่ยวกับการบาดเจ็บของเข่า</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q5" oninput="updateOutput('q5Output', this.value)">
+        <span id="q5Output" class="output">0</span><br>
+
+        <label for="q6">คำถามที่ 6: คุณรู้สึกหงุดหงิดเพียงใด ที่ต้องนึกถึงเข่าที่บาดเจ็บเวลาเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q6" oninput="updateOutput('q6Output', this.value)">
+        <span id="q6Output" class="output">0</span><br>
+
+        <label for="q7">คำถามที่ 7: คุณกลัวเพียงใดว่าจะเกิดการบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q7" oninput="updateOutput('q7Output', this.value)">
+        <span id="q7Output" class="output">0</span><br>
+
+        <label for="q8">คำถามที่ 8: คุณมั่นใจเพียงใดว่าเข่าของคุณสามารถรับแรงกระแทกได้</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
+        <span id="q8Output" class="output">0</span><br>
+
+        <label for="q9">คำถามที่ 9: คุณกลัวเพียงใดว่าจะบาดเจ็บบริเวณเข่าโดยไม่ได้ตั้งใจจากการเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
+        <span id="q9Output" class="output">0</span><br>
+
+        <label for="q10">คำถามที่ 10: คุณคิดว่าการผ่าตัดและการฟื้นฟูร่างกายเป็นอุปสรรคต่อการกลับไปเล่นกีฬาเพียงใด</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
+        <span id="q10Output" class="output">0</span><br>
+
+        <label for="q11">คำถามที่ 11: คุณมั่นใจเพียงใดว่าจะแสดงความสามารถทางกีฬาได้อย่างดี</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
+        <span id="q11Output" class="output">0</span><br>
+
+        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา</label><br>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
+        <span id="q12Output" class="output">0</span><br>
+
+        <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
+    </div>
+
+    <div id="results" class="result-container">
+        <h2>สรุปคะแนนรวม</h2>
+        <p id="totalScore">คะแนนรวม: 0</p>
+        <div id="failedQuestions">
+            <!-- Failed questions and exercises will be displayed here -->
         </div>
-        <button class="back-to-chatbot-btn" onclick="redirectToChatbot()">กลับสู่ LINE Chatbot</button>
     </div>
 
     <script>
-        function displayResults() {
-            // Placeholder for fetching results
-            const failedQuestions = [
-                // Example data
-                { question: 'คำถามที่ 1', score: 60 },
-                { question: 'คำถามที่ 7', score: 70 }
-            ];
+        function updateOutput(id, value) {
+            document.getElementById(id).textContent = value;
+        }
 
-            const resultsDiv = document.getElementById('failedQuestions');
-            resultsDiv.innerHTML = '';
+        function showResults() {
+            let totalScore = 0;
+            const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
+            const failedQuestions = document.getElementById('failedQuestions');
+            failedQuestions.innerHTML = '';
+            questionIds.forEach(id => {
+                totalScore += parseInt(document.getElementById(id).value, 10);
+            });
 
-            failedQuestions.forEach((item) => {
-                resultsDiv.innerHTML += `<div>${item.question} - คะแนน: ${item.score}</div>`;
+            document.getElementById('totalScore').textContent = `คะแนนรวม: ${totalScore}`;
+            document.getElementById('results').classList.add('show');
+
+            questionIds.forEach(id => {
+                const score = parseInt(document.getElementById(id).value, 10);
+                let feedback = '';
+                let imgSrc = '';
+
+                if (id === 'q1' || id === 'q2' || id === 'q3' || id === 'q4' || id === 'q5') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
+                        imgSrc = 'https://github.com/your-repo/goolf-nama.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
+                        imgSrc = 'https://github.com/your-repo/virabhadrasana.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q6' || id === 'q7' || id === 'q8' || id === 'q9' || id === 'q10') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
+                        imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
+                        imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q11' || id === 'q12') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
+                        imgSrc = 'https://github.com/your-repo/weight-shifting.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
+                        imgSrc = 'https://github.com/your-repo/multi-directional-shuttle-run.png'; // Replace with actual image URL
+                    }
+                }
+
+                if (feedback) {
+                    const questionFeedback = document.createElement('div');
+                    questionFeedback.innerHTML = `
+                        <h3>คำถามที่ ${id.substring(1)}:</h3>
+                        <p>${feedback}</p>
+                        <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
+                    `;
+                    failedQuestions.appendChild(questionFeedback);
+                }
             });
         }
-
-        function redirectToChatbot() {
-            // Replace with your LINE chatbot URL and any necessary parameters
-            const chatbotURL = 'https://line.me/R/oaMessage/m/your-channel-id'; 
-            window.location.href = chatbotURL;
-        }
-
-        // Call displayResults when the page loads
-        window.onload = displayResults;
     </script>
 </body>
 </html>
