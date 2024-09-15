@@ -182,24 +182,41 @@
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
         <span id="q11Output" class="output">0</span><br>
 
-        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา</label><br>
+        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายหรือกังวลเพียงใดเกี่ยวกับการเล่นกีฬา</label><br>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
         <span id="q12Output" class="output">0</span><br>
 
         <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
-    </div>
 
-    <div id="results" class="result-container">
-        <h2>สรุปคะแนนรวม</h2>
-        <p id="totalScore">คะแนนรวม: 0</p>
-        <div id="failedQuestions">
-            <!-- Failed questions and exercises will be displayed here -->
+        <div id="results" class="result-container">
+            <h2>ผลลัพธ์</h2>
+            <p id="totalScore"></p>
+            <div id="failedQuestions"></div>
         </div>
     </div>
 
     <script>
-        function updateOutput(id, value) {
-            document.getElementById(id).textContent = value;
+        function updateOutput(outputId, value) {
+            document.getElementById(outputId).textContent = value;
+        }
+
+        function sendLineNotify(message) {
+            const token = 'ESwlqHyfwTraglqj1NFrY9IRulR4sMddDeXikXVAJjR'; // Your LINE Notify token
+            const url = 'https://notify-api.line.me/api/notify';
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'message': message
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch(error => console.error('Error:', error));
         }
 
         function showResults() {
@@ -214,6 +231,7 @@
             document.getElementById('totalScore').textContent = `คะแนนรวม: ${totalScore}`;
             document.getElementById('results').classList.add('show');
 
+            let message = `คะแนนรวม: ${totalScore}\n`;
             questionIds.forEach(id => {
                 const score = parseInt(document.getElementById(id).value, 10);
                 let feedback = '';
@@ -253,8 +271,12 @@
                         <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
                     `;
                     failedQuestions.appendChild(questionFeedback);
+                    message += `คำถามที่ ${id.substring(1)}: ${feedback}\n`;
                 }
             });
+
+            // ส่งข้อความไปยัง LINE Notify
+            sendLineNotify(message);
         }
     </script>
 </body>
