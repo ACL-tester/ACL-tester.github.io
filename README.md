@@ -132,6 +132,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>แบบประเมิน</h1>
 
@@ -181,62 +182,80 @@
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
         <span id="q11Output" class="output">0</span><br>
 
-        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อต้องเล่นกีฬา</label><br>
+        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา</label><br>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
         <span id="q12Output" class="output">0</span><br>
 
-        <button class="submit-btn" onclick="submitAssessment()">ส่งคำตอบ</button>
+        <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
     </div>
 
-    <!-- เพิ่ม LIFF SDK -->
-    <script src="https://static.line-scdn.net/liff/edge/liff.min.js"></script>
+    <div id="results" class="result-container">
+        <h2>สรุปคะแนนรวม</h2>
+        <p id="totalScore">คะแนนรวม: 0</p>
+        <div id="failedQuestions">
+            <!-- Failed questions and exercises will be displayed here -->
+        </div>
+    </div>
+
     <script>
-        // ฟังก์ชันในการอัพเดตค่าที่แสดงผล
-        function updateOutput(outputId, value) {
-            document.getElementById(outputId).textContent = value;
+        function updateOutput(id, value) {
+            document.getElementById(id).textContent = value;
         }
 
-        // ฟังก์ชันในการส่งข้อมูลการประเมิน
-        function submitAssessment() {
-            const scores = [];
-            for (let i = 1; i <= 12; i++) {
-                scores.push(parseInt(document.getElementById(`q${i}`).value, 10));
-            }
-            
-            const totalScore = scores.reduce((a, b) => a + b, 0);
-            const averageScore = totalScore / scores.length;
-
-            // ตรวจสอบผลคะแนน
-            let resultMessage = "";
-            if (averageScore < 65) {
-                resultMessage = "แนะนำการฝึกฝนแบบ Non-Contact Non-Pivot";
-            } else if (averageScore >= 65 && averageScore <= 80) {
-                resultMessage = "แนะนำการฝึกฝนแบบ Non-Contact Pivot";
-            } else {
-                resultMessage = "สามารถกลับไปแข่งขันกีฬาได้";
-            }
-
-            document.querySelector('.result-container').classList.add('show');
-            document.getElementById('result').textContent = resultMessage;
-        }
-
-        // Initialize LIFF
-        window.onload = function() {
-            liff.init({ liffId: "YOUR_LIFF_ID" }).then(() => {
-                if (!liff.isLoggedIn()) {
-                    liff.login();
-                }
-            }).catch((err) => {
-                console.error('LIFF Initialization failed ', err);
+        function showResults() {
+            let totalScore = 0;
+            const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
+            const failedQuestions = document.getElementById('failedQuestions');
+            failedQuestions.innerHTML = '';
+            questionIds.forEach(id => {
+                totalScore += parseInt(document.getElementById(id).value, 10);
             });
-        };
-    </script>
 
-    <!-- ข้อความผลลัพธ์ -->
-    <div class="result-container">
-        <h2>ผลการประเมิน</h2>
-        <p id="result"></p>
-    </div>
+            document.getElementById('totalScore').textContent = `คะแนนรวม: ${totalScore}`;
+            document.getElementById('results').classList.add('show');
+
+            questionIds.forEach(id => {
+                const score = parseInt(document.getElementById(id).value, 10);
+                let feedback = '';
+                let imgSrc = '';
+
+                if (id === 'q1' || id === 'q2' || id === 'q3' || id === 'q4' || id === 'q5') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
+                        imgSrc = 'https://github.com/your-repo/goolf-nama.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
+                        imgSrc = 'https://github.com/your-repo/virabhadrasana.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q6' || id === 'q7' || id === 'q8' || id === 'q9' || id === 'q10') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
+                        imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
+                        imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q11' || id === 'q12') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
+                        imgSrc = 'https://github.com/your-repo/weight-shifting.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
+                        imgSrc = 'https://github.com/your-repo/multi-directional-shuttle-run.png'; // Replace with actual image URL
+                    }
+                }
+
+                if (feedback) {
+                    const questionFeedback = document.createElement('div');
+                    questionFeedback.innerHTML = `
+                        <h3>คำถามที่ ${id.substring(1)}:</h3>
+                        <p>${feedback}</p>
+                        <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
+                    `;
+                    failedQuestions.appendChild(questionFeedback);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
