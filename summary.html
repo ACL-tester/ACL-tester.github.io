@@ -4,48 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สรุปผลแบบสอบถาม</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #4a90e2;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .summary-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Summary of Responses</h2>
+    <div class="summary-container">
+        <h2>Summary of Responses</h2>
 
-<p>คำตอบที่ 1: <span id="summaryQ1">0</span></p>
-<p>คำตอบที่ 2: <span id="summaryQ2">0</span></p>
-<p>คำตอบที่ 3: <span id="summaryQ3">0</span></p>
-<p>คำตอบที่ 4: <span id="summaryQ4">0</span></p>
-<p>คำตอบที่ 5: <span id="summaryQ5">0</span></p>
-<p>คำตอบที่ 6: <span id="summaryQ6">0</span></p>
-<p>คำตอบที่ 7: <span id="summaryQ7">0</span></p>
-<p>คำตอบที่ 8: <span id="summaryQ8">0</span></p>
-<p>คำตอบที่ 9: <span id="summaryQ9">0</span></p>
-<p>คำตอบที่ 10: <span id="summaryQ10">0</span></p>
-<p>คำตอบที่ 11: <span id="summaryQ11">0</span></p>
-<p>คำตอบที่ 12: <span id="summaryQ12">0</span></p>
-<!-- เพิ่มตามจำนวนคำถาม -->
+        <p>คำตอบที่ 1: <span id="summaryQ1">0</span></p>
+        <p>คำตอบที่ 2: <span id="summaryQ2">0</span></p>
+        <p>คำตอบที่ 3: <span id="summaryQ3">0</span></p>
+        <p>คำตอบที่ 4: <span id="summaryQ4">0</span></p>
+        <p>คำตอบที่ 5: <span id="summaryQ5">0</span></p>
+        <p>คำตอบที่ 6: <span id="summaryQ6">0</span></p>
+        <p>คำตอบที่ 7: <span id="summaryQ7">0</span></p>
+        <p>คำตอบที่ 8: <span id="summaryQ8">0</span></p>
+        <p>คำตอบที่ 9: <span id="summaryQ9">0</span></p>
+        <p>คำตอบที่ 10: <span id="summaryQ10">0</span></p>
+        <p>คำตอบที่ 11: <span id="summaryQ11">0</span></p>
+        <p>คำตอบที่ 12: <span id="summaryQ12">0</span></p>
+    </div>
 
-<script>
-    // ฟังก์ชันนี้จะทำงานเมื่อเปิดหน้า summary.html
-    window.onload = function() {
-        const answers = JSON.parse(localStorage.getItem("surveyAnswers"));  // ดึงข้อมูลจาก localStorage
-        if (answers) {
-            document.getElementById("summaryQ1").innerText = answers.q1;
-            document.getElementById("summaryQ2").innerText = answers.q2;
-            document.getElementById("summaryQ3").innerText = answers.q3;
-            document.getElementById("summaryQ4").innerText = answers.q4;
-            document.getElementById("summaryQ5").innerText = answers.q5;
-            document.getElementById("summaryQ6").innerText = answers.q6;
-            document.getElementById("summaryQ7").innerText = answers.q7;
-            document.getElementById("summaryQ8").innerText = answers.q8;
-            document.getElementById("summaryQ9").innerText = answers.q9;
-            document.getElementById("summaryQ10").innerText = answers.q10;
-            document.getElementById("summaryQ11").innerText = answers.q11;
-            document.getElementById("summaryQ12").innerText = answers.q12;
-            // เพิ่มคำตอบทั้งหมดที่ต้องการแสดง
-        } else {
-            alert("ไม่มีข้อมูลใน localStorage");
-        }
-    };
-</script>
+    <script>
+        window.onload = function() {
+            const answers = JSON.parse(localStorage.getItem("surveyAnswers"));
+            if (answers) {
+                document.getElementById("summaryQ1").innerText = answers.q1;
+                document.getElementById("summaryQ2").innerText = answers.q2;
+                document.getElementById("summaryQ3").innerText = answers.q3;
+                document.getElementById("summaryQ4").innerText = answers.q4;
+                document.getElementById("summaryQ5").innerText = answers.q5;
+                document.getElementById("summaryQ6").innerText = answers.q6;
+                document.getElementById("summaryQ7").innerText = answers.q7;
+                document.getElementById("summaryQ8").innerText = answers.q8;
+                document.getElementById("summaryQ9").innerText = answers.q9;
+                document.getElementById("summaryQ10").innerText = answers.q10;
+                document.getElementById("summaryQ11").innerText = answers.q11;
+                document.getElementById("summaryQ12").innerText = answers.q12;
+            } else {
+                alert("ไม่มีข้อมูลใน localStorage");
+            }
+        };
+    </script>
 
 </body>
 </html>
