@@ -1,4 +1,4 @@
-<ยินดีต้อนรับสู่แบบประเมินนะครับ>
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
