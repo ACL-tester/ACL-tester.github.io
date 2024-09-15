@@ -6,7 +6,6 @@
     <title>แบบประเมิน</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* CSS ที่ปรับปรุงแล้วเพื่อรองรับการแสดงผล */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f7f7f7;
@@ -27,14 +26,15 @@
             color: #333;
         }
 
-        .question-container, .result-container {
+        .container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            margin-bottom: 20px;
+            margin: 20px;
             width: 80%;
             max-width: 500px;
+            box-sizing: border-box;
         }
 
         label {
@@ -117,7 +117,7 @@
         }
 
         @media (max-width: 600px) {
-            .question-container, .result-container {
+            .container {
                 width: 90%;
                 padding: 15px;
             }
@@ -132,24 +132,21 @@
 <body>
     <h1>แบบประเมิน</h1>
 
-    <div class="question-container">
-        <!-- คำถามทั้งหมดเรียงต่อเนื่องกัน (ข้อ 1-12) -->
+    <div class="container">
         <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
         <span id="q1Output" class="output">0</span><br>
 
-        <!-- เพิ่มคำถามที่เหลือ (Q2-Q12) ที่นี่ -->
-        <!-- ตัวอย่างการเพิ่มคำถาม -->
         <label for="q2">คำถามที่ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q2" oninput="updateOutput('q2Output', this.value)">
         <span id="q2Output" class="output">0</span><br>
 
-        <!-- ... เพิ่มคำถามที่เหลือ ... -->
+        <!-- เพิ่มคำถามที่เหลือ (Q3-Q12) ที่นี่ -->
     </div>
 
     <button class="submit-btn" onclick="calculateScore()">ดูคะแนน</button>
 
-    <div class="result-container" id="resultContainer">
+    <div class="container result-container" id="resultContainer">
         <h2>สรุปคะแนนรวม</h2>
         <p id="summary"></p>
         <div id="exerciseRecommendations"></div>
@@ -213,4 +210,18 @@
             }
             if (results.emotion.between65and80.length > 0) {
                 exerciseRecommendations += '<h3>Domain: Emotion (คะแนน 65-80)</h3>';
-                exerciseRecommendations += '<p>Exercise: Deep breathing exercise (Nadi Shodhana), Yoga; Virabhadrasana 1 (
+                exerciseRecommendations += '<p>Exercise: Deep breathing exercise (Nadi Shodhana), Yoga; Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose), Savasana</p>';
+                results.emotion.between65and80.forEach(id => {
+                    exerciseRecommendations += `<img src="URL_TO_YOUR_IMAGES/${id}_between65and80.jpg" class="exercise-img" alt="Exercise Image">`;
+                });
+            }
+
+            // Similar code for Confidence and Risk domains...
+
+            document.getElementById('exerciseRecommendations').innerHTML = exerciseRecommendations;
+            document.getElementById('resultContainer').classList.add('show');
+        }
+    </script>
+</body>
+</html>
+
