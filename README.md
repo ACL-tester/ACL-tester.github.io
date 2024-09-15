@@ -33,8 +33,11 @@
             padding: 20px;
             margin: 20px;
             width: 80%;
-            max-width: 600px;
+            max-width: 700px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         label {
@@ -43,6 +46,7 @@
             margin-bottom: 10px;
             display: block;
             color: #555;
+            text-align: center;
         }
 
         .slider {
@@ -255,10 +259,3 @@
     </script>
 </body>
 </html>
-
-                });
-            }
-            if (results.emotion.between65and80.length > 0) {
-                exerciseRecommendations += '<h3>Domain: Emotion (คะแนน 65-80)</h3>';
-                exerciseRecommendations += '<p>Exercise: Deep breathing exercise (Nadi Shodhana), Yoga; Virabhadrasana 1 (
-
