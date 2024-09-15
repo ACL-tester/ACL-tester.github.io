@@ -38,7 +38,6 @@
     </div>
 
 <script>
-    // ฟังก์ชันนี้จะทำงานเมื่อเปิดหน้า summary.html
     window.onload = function() {
         const answers = JSON.parse(localStorage.getItem("surveyAnswers"));  // ดึงข้อมูลจาก localStorage
         if (answers) {
@@ -50,8 +49,7 @@
                 confidence: { low: 65, high: 80 },
                 risk: { low: 65, high: 80 }
             };
-            
-            // เกณฑ์การตัดสินคะแนน
+
             const questionData = [
                 { q: answers.q1, domain: 'Emotion', text: 'ข้อ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
                 { q: answers.q2, domain: 'Emotion', text: 'ข้อ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
