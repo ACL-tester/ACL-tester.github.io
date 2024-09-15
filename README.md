@@ -1,3 +1,53 @@
+ข้อ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม  
+  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
+  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
+ 
+ ข้อ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา   
+  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
+  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
+
+ ข้อ 3: คุณมีความกังวลเพียงใดเกี่ยวกับการเล่นกีฬา 
+  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
+  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
+
+ ข้อ 4: คุณมั่นใจเพียงใดว่าจะไม่เกิดอาการเข่าหลวมจากการเล่นกีฬาอีก ได้ต่ำกว่า 65 คะแนน 
+  - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
+  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
+
+ ข้อ 5: คุณมั่นใจเพียงใดว่าคุณสามารถเล่นกีฬาได้โดยไม่ต้องกังวลเกี่ยวกับการบาดเจ็บของเข่า ถ้าไม่ผ่าน 
+    - คะแนนน้อยกว่า 65 คะแนน: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama (Ankle bending), Goolf Chakra (Ankle rotation), Poorna Titali (Full butterfly) และJanu Naman (Knee bending)
+  - คะแนนตั้งแต่ 65-80 คะแนน: Deep breathing exercise (Nadi Shodhana), Yoga;Virabhadrasana 1 (Warrior 1 pose), Virabhadrasana 2 (Warrior 2 pose) และSavasana   
+ 
+- Confidence in performance: 
+ ข้อ 6: คุณรู้สึกหงุดหงิดเพียงใด ที่ต้องนึกถึงเข่าที่บาดเจ็บเวลาเล่นกีฬา 
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน: Squat, shuffle
+  - คะแนนตั้งแต่ 65-80 คะแนน: Box jump, vertical jump 
+ 
+ ข้อ 7: คุณกลัวเพียงใดว่าจะเกิดการบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน: Wall Squat, Skater hop   
+  - คะแนนตั้งแต่ 65-80 คะแนน: Lunges to knee jump, Spilt squat jump  
+
+ ข้อ 8: คุณมั่นใจเพียงใดว่าเข่าของคุณสามารถรับแรงกระแทกได้
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Hop test, Step up and down
+  - คะแนนตั้งแต่ 65-80 คะแนน; Single leg hop hop stick, Single leg cross over
+
+ ข้อ 9: คุณกลัวเพียงใดว่าจะบาดเจ็บบริเวณเข่าโดยไม่ได้ตั้งใจจากการเล่นกีฬา
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน Lateral step up, Pop squat 
+  - คะแนนตั้งแต่ 65-80 คะแนน 180 degree jump, Power step up 
+
+ ข้อ 10: คุณคิดว่าการผ่าตัดและการฟื้นฟูร่างกายเป็นอุปสรรคต่อการกลับไปเล่นกีฬาเพียงใด
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Bridge, Single leg bridge
+  - คะแนนตั้งแต่ 65-80 คะแนน; Single leg bridge with ball, Hamstring curl on ball
+
+- Risk appraisal:
+ ข้อ 11.: คุณมั่นใจเพียงใดว่าจะแสดงความสามารถทางกีฬาได้อย่างดี 
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Weight shifting, SEBT
+  - คะแนนตั้งแต่ 65-80 คะแนน; Multi directional shuttle run, Fig of eight
+
+ ข้อ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา
+  - คะแนนน้อยกว่าเท่ากับ 65 คะแนน; Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells
+  - คะแนนตั้งแต่ 65-80 คะแนน; Sumo squat with double dumbbells, Sled drag
+จากคำถาม 12 ข้อช่วยเอามาใส่ใน code ต่อไปนี้ทีคือ
 <!DOCTYPE html>
 <html lang="th">
 <head>
