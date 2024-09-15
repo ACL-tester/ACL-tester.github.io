@@ -3,91 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สรุปผลการประเมิน</title>
+    <title>ผลลัพธ์การประเมิน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
             color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        h2 {
-            color: #4CAF50;
-        }
-        .summary-section {
-            margin: 20px auto;
-            padding: 20px;
+
+        .container {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 80%;
+            max-width: 700px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .exercise {
-            font-size: 16px;
-            color: #ff5722;
+
+        .result {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .exercise-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .back-btn {
+            font-size: 1.2rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
         }
     </style>
 </head>
-<body>
 
-    <h2>Summary of Responses</h2>
-    <div class="summary-section">
-        <p>คะแนนรวม: <span id="totalScore">0</span></p>
-        <p>ผลการประเมิน:</p>
-        <div id="result"></div>
+<body>
+    <div class="container">
+        <h1>ผลลัพธ์การประเมิน</h1>
+
+        <div id="results">
+            <h2>สรุปคะแนนรวม</h2>
+            <p id="totalScore">คะแนนรวม: 0</p>
+            <div id="failedQuestions">
+                <!-- Failed questions and exercises will be displayed here -->
+            </div>
+        </div>
+
+        <button class="back-btn" onclick="window.history.back()">กลับไปที่หน้าแบบประเมิน</button>
     </div>
 
-<script>
-    window.onload = function() {
-        const answers = JSON.parse(localStorage.getItem("surveyAnswers"));  // ดึงข้อมูลจาก localStorage
-        if (answers) {
-            let totalScore = 0;
-            let failedQuestions = [];
-            
-            const cutOffPoints = {
-                emotion: { low: 65, high: 80 },
-                confidence: { low: 65, high: 80 },
-                risk: { low: 65, high: 80 }
-            };
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-            const questionData = [
-                { q: answers.q1, domain: 'Emotion', text: 'ข้อ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
-                { q: answers.q2, domain: 'Emotion', text: 'ข้อ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
-                { q: answers.q3, domain: 'Emotion', text: 'ข้อ 3: คุณมีความกังวลเพียงใดเกี่ยวกับการเล่นกีฬา', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
-                { q: answers.q4, domain: 'Emotion', text: 'ข้อ 4: คุณมั่นใจเพียงใดว่าจะไม่เกิดอาการเข่าหลวมจากการเล่นกีฬาอีก', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
-                { q: answers.q5, domain: 'Emotion', text: 'ข้อ 5: คุณมั่นใจเพียงใดว่าคุณสามารถเล่นกีฬาได้โดยไม่ต้องกังวลเกี่ยวกับการบาดเจ็บของเข่า', exercises: { low: 'Imagery + Progressive relaxation, Pawanmuktasana series', mid: 'Deep breathing exercise (Nadi Shodhana), Yoga' }},
-                { q: answers.q6, domain: 'Confidence in performance', text: 'ข้อ 6: คุณรู้สึกหงุดหงิดเพียงใด ที่ต้องนึกถึงเข่าที่บาดเจ็บเวลาเล่นกีฬา', exercises: { low: 'Squat, shuffle', mid: 'Box jump, vertical jump' }},
-                { q: answers.q7, domain: 'Confidence in performance', text: 'ข้อ 7: คุณกลัวเพียงใดว่าจะเกิดการบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา', exercises: { low: 'Wall Squat, Skater hop', mid: 'Lunges to knee jump, Spilt squat jump' }},
-                { q: answers.q8, domain: 'Confidence in performance', text: 'ข้อ 8: คุณมั่นใจเพียงใดว่าเข่าของคุณสามารถรับแรงกระแทกได้', exercises: { low: 'Hop test, Step up and down', mid: 'Single leg hop hop stick, Single leg cross over' }},
-                { q: answers.q9, domain: 'Confidence in performance', text: 'ข้อ 9: คุณกลัวเพียงใดว่าจะบาดเจ็บบริเวณเข่าโดยไม่ได้ตั้งใจจากการเล่นกีฬา', exercises: { low: 'Lateral step up, Pop squat', mid: '180 degree jump, Power step up' }},
-                { q: answers.q10, domain: 'Confidence in performance', text: 'ข้อ 10: คุณคิดว่าการผ่าตัดและการฟื้นฟูร่างกายเป็นอุปสรรคต่อการกลับไปเล่นกีฬาเพียงใด', exercises: { low: 'Bridge, Single leg bridge', mid: 'Single leg bridge with ball, Hamstring curl on ball' }},
-                { q: answers.q11, domain: 'Risk appraisal', text: 'ข้อ 11: คุณมั่นใจเพียงใดว่าจะแสดงความสามารถทางกีฬาได้อย่างดี', exercises: { low: 'Weight shifting, SEBT', mid: 'Multi directional shuttle run, Fig of eight' }},
-                { q: answers.q12, domain: 'Risk appraisal', text: 'ข้อ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา', exercises: { low: 'Transitional stabilization, Lunges with dumbbells', mid: 'Sumo squat with dumbbells, Sled drag' }},
-            ];
+        function showResults() {
+            const totalScore = parseInt(getQueryParam('totalScore'), 10);
+            const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
+            const failedQuestions = document.getElementById('failedQuestions');
+            failedQuestions.innerHTML = '';
 
-            questionData.forEach((q) => {
-                totalScore += q.q;  // เพิ่มคะแนนรวม
-                let resultText = '';
+            document.getElementById('totalScore').textContent = `คะแนนรวม: ${totalScore}`;
 
-                if (q.q < cutOffPoints[q.domain.toLowerCase()].low) {
-                    resultText = `${q.text} - ต้องฝึกเพิ่ม: ${q.exercises.low}`;
-                } else if (q.q >= cutOffPoints[q.domain.toLowerCase()].low && q.q <= cutOffPoints[q.domain.toLowerCase()].high) {
-                    resultText = `${q.text} - ต้องฝึกเพิ่ม: ${q.exercises.mid}`;
+            questionIds.forEach(id => {
+                const score = parseInt(getQueryParam(id), 10);
+                let feedback = '';
+                let imgSrc = '';
+
+                if (id === 'q1' || id === 'q2' || id === 'q3' || id === 'q4' || id === 'q5') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
+                        imgSrc = 'https://github.com/your-repo/goolf-nama.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
+                        imgSrc = 'https://github.com/your-repo/virabhadrasana.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q6' || id === 'q7' || id === 'q8' || id === 'q9' || id === 'q10') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
+                        imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
+                        imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q11' || id === 'q12') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
+                        imgSrc = 'https://github.com/your-repo/weight-shifting.png'; // Replace with actual image URL
+                    } else if (score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag.';
+                        imgSrc = 'https://github.com/your-repo/multi-directional-shuttle-run.png'; // Replace with actual image URL
+                    }
                 }
 
-                if (resultText) {
-                    failedQuestions.push(`<p class="exercise">${resultText}</p>`);
+                if (feedback) {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.classList.add('result');
+                    questionDiv.innerHTML = `<p><strong>คำถาม ${id.replace('q', '')}</strong>: ${feedback}</p>`;
+                    if (imgSrc) {
+                        questionDiv.innerHTML += `<img src="${imgSrc}" alt="Exercise Image" class="exercise-img">`;
+                    }
+                    failedQuestions.appendChild(questionDiv);
                 }
             });
-
-            document.getElementById("totalScore").innerText = totalScore;
-            document.getElementById("result").innerHTML = failedQuestions.join("");
-        } else {
-            alert("ไม่มีข้อมูลใน localStorage");
         }
-    };
-</script>
 
+        showResults();
+    </script>
 </body>
 </html>
 
