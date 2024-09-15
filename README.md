@@ -182,19 +182,17 @@
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
         <span id="q11Output" class="output">0</span><br>
 
-        <label for="q12">คำถามที่ 12: คุณรู้สึกผ่อนคลายเพียงใดเมื่อเล่นกีฬา</label><br>
+        <label for="q12">คำถามที่ 12: คุณรู้สึกมั่นใจเพียงใดในการเคลื่อนไหวที่มีผลต่อการเล่นกีฬา</label><br>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
         <span id="q12Output" class="output">0</span><br>
 
-        <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
+        <button class="submit-btn" onclick="showResults()">ส่งผลลัพธ์</button>
     </div>
 
     <div id="results" class="result-container">
-        <h2>สรุปคะแนนรวม</h2>
-        <p id="totalScore">คะแนนรวม: 0</p>
-        <div id="failedQuestions">
-            <!-- Failed questions and exercises will be displayed here -->
-        </div>
+        <h2>ผลลัพธ์</h2>
+        <div id="totalScore" class="output"></div>
+        <div id="failedQuestions"></div>
     </div>
 
     <script>
@@ -217,31 +215,55 @@
             questionIds.forEach(id => {
                 const score = parseInt(document.getElementById(id).value, 10);
                 let feedback = '';
-                let imgSrc = '';
+                let images = [];
 
                 if (id === 'q1' || id === 'q2' || id === 'q3' || id === 'q4' || id === 'q5') {
                     if (score < 65) {
                         feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
-                        imgSrc = 'https://github.com/your-repo/goolf-nama.png'; // Replace with actual image URL
+                        images = [
+                            'https://github.com/your-repo/goolf-nama1.png',
+                            'https://github.com/your-repo/goolf-nama2.png',
+                            'https://github.com/your-repo/goolf-nama3.png',
+                            'https://github.com/your-repo/goolf-nama4.png'
+                        ];
                     } else if (score <= 80) {
                         feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
-                        imgSrc = 'https://github.com/your-repo/virabhadrasana.png'; // Replace with actual image URL
+                        images = [
+                            'https://github.com/your-repo/virabhadrasana1.png',
+                            'https://github.com/your-repo/virabhadrasana2.png'
+                        ];
                     }
                 } else if (id === 'q6' || id === 'q7' || id === 'q8' || id === 'q9' || id === 'q10') {
                     if (score < 65) {
                         feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
-                        imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
+                        images = [
+                            'https://github.com/your-repo/squat1.png',
+                            'https://github.com/your-repo/squat2.png',
+                            'https://github.com/your-repo/squat3.png',
+                            'https://github.com/your-repo/squat4.png',
+                            'https://github.com/your-repo/squat5.png'
+                        ];
                     } else if (score <= 80) {
                         feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
-                        imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
+                        images = [
+                            'https://github.com/your-repo/box-jump1.png',
+                            'https://github.com/your-repo/box-jump2.png',
+                            'https://github.com/your-repo/box-jump3.png'
+                        ];
                     }
                 } else if (id === 'q11' || id === 'q12') {
                     if (score < 65) {
                         feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
-                        imgSrc = 'https://github.com/your-repo/weight-shifting.png'; // Replace with actual image URL
+                        images = [
+                            'https://github.com/your-repo/weight-shifting1.png',
+                            'https://github.com/your-repo/weight-shifting2.png'
+                        ];
                     } else if (score <= 80) {
                         feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
-                        imgSrc = 'https://github.com/your-repo/multi-directional-shuttle-run.png'; // Replace with actual image URL
+                        images = [
+                            'https://github.com/your-repo/multi-directional-shuttle-run1.png',
+                            'https://github.com/your-repo/multi-directional-shuttle-run2.png'
+                        ];
                     }
                 }
 
@@ -250,7 +272,7 @@
                     questionFeedback.innerHTML = `
                         <h3>คำถามที่ ${id.substring(1)}:</h3>
                         <p>${feedback}</p>
-                        <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
+                        ${images.map(src => `<img src="${src}" class="exercise-img" alt="Exercise Image">`).join('')}
                     `;
                     failedQuestions.appendChild(questionFeedback);
                 }
