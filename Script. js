@@ -1,0 +1,86 @@
+function showResults() {
+    let totalScore = 0;
+    const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
+    const failedQuestions = document.getElementById('failedQuestions');
+    failedQuestions.innerHTML = '';
+    questionIds.forEach(id => {
+        totalScore += parseInt(document.getElementById(id).value, 10);
+    });
+
+    document.getElementById('totalScore').textContent = `คะแนนรวม: ${totalScore}`;
+    document.getElementById('results').classList.add('show');
+
+    const resultsData = {
+        totalScore: totalScore,
+        failedQuestions: [],
+        recommendedExercises: []
+    };
+
+    questionIds.forEach(id => {
+        const score = parseInt(document.getElementById(id).value, 10);
+        let feedback = '';
+        let imgSrc = '';
+
+        if (id === 'q1' || id === 'q2' || id === 'q3' || id === 'q4' || id === 'q5') {
+            if (score < 65) {
+                feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
+                imgSrc = 'https://github.com/your-repo/goolf-nama.png';
+            } else if (score <= 80) {
+                feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
+                imgSrc = 'https://github.com/your-repo/virabhadrasana.png';
+            }
+        } else if (id === 'q6' || id === 'q7' || id === 'q8' || id === 'q9' || id === 'q10') {
+            if (score < 65) {
+                feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
+                imgSrc = 'https://github.com/your-repo/squat.png';
+            } else if (score <= 80) {
+                feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
+                imgSrc = 'https://github.com/your-repo/box-jump.png';
+            }
+        } else if (id === 'q11' || id === 'q12') {
+            if (score < 65) {
+                feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
+                imgSrc = 'https://github.com/your-repo/weight-shifting.png';
+            } else if (score <= 80) {
+                feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
+                imgSrc = 'https://github.com/your-repo/multi-directional-shuttle-run.png';
+            }
+        }
+
+        if (feedback) {
+            resultsData.failedQuestions.push({
+                questionId: id,
+                feedback: feedback
+            });
+            resultsData.recommendedExercises.push({
+                questionId: id,
+                feedback: feedback,
+                image: imgSrc
+            });
+
+            const questionFeedback = document.createElement('div');
+            questionFeedback.innerHTML = `
+                <h3>คำถามที่ ${id.substring(1)}:</h3>
+                <p>${feedback}</p>
+                <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
+            `;
+            failedQuestions.appendChild(questionFeedback);
+        }
+    });
+
+    // ส่งข้อมูลไปยัง Webhook
+    fetch('YOUR_WEBHOOK_URL', { // เปลี่ยนเป็น URL ของ Google Cloud Function ของคุณ
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(resultsData)
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log('Success:', result);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
