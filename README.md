@@ -26,26 +26,63 @@
             color: #333;
         }
 
-        .container {
+        .container, .question-container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin: 20px;
             width: 80%;
-            max-width: 700px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 500px;
         }
 
-        p {
+        label {
             font-size: 1.1rem;
-            line-height: 1.6;
+            font-weight: 400;
+            margin-bottom: 10px;
+            display: block;
             color: #555;
-            text-align: center;
-            margin-bottom: 20px;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 10px 0;
+            height: 8px;
+            appearance: none;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s ease;
+        }
+
+        .slider:hover {
+            background: #ccc;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .output {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-left: 10px;
         }
 
         .submit-btn {
@@ -57,6 +94,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-top: 20px;
         }
 
         .submit-btn:hover {
@@ -68,7 +106,7 @@
         }
 
         @media (max-width: 600px) {
-            .container {
+            .container, .question-container {
                 width: 90%;
                 padding: 15px;
             }
@@ -79,6 +117,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- หน้าแรก คำชี้แจง -->
@@ -93,28 +132,34 @@
     </div>
 
     <!-- หน้าแบบประเมิน -->
-    <div id="assessmentPage" class="container hidden">
+    <div id="assessmentPage" class="hidden">
         <h1>แบบประเมิน</h1>
 
-        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
-        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
-        <span id="q1Output" class="output">0</span><br>
+        <!-- คำถามทั้งหมดเรียงต่อเนื่องกัน (ข้อ 1-12) -->
+        <div class="question-container">
+            <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
+            <span id="q1Output" class="output">0</span>
+        </div>
 
-        <!-- เพิ่มคำถามตามที่คุณมีไว้ด้านบน... -->
+        <!-- เพิ่มคำถามที่เหลือ -->
 
         <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
     </div>
 
     <script>
+        // ฟังก์ชันเปลี่ยนหน้าไปยังแบบประเมิน
         function nextPage() {
             document.getElementById('introPage').classList.add('hidden');
             document.getElementById('assessmentPage').classList.remove('hidden');
         }
 
-        function updateOutput(id, value) {
-            document.getElementById(id).textContent = value;
+        // ฟังก์ชันอัพเดตผลลัพธ์ของ slider
+        function updateOutput(outputId, value) {
+            document.getElementById(outputId).innerText = value;
         }
 
+        // ฟังก์ชันคำนวณคะแนนรวม
         function showResults() {
             let totalScore = 0;
             const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
@@ -125,5 +170,6 @@
             alert(`คะแนนรวม: ${totalScore}`);
         }
     </script>
+
 </body>
 </html>
