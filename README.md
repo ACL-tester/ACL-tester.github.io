@@ -142,7 +142,71 @@
             <span id="q1Output" class="output">0</span>
         </div>
 
-        <!-- เพิ่มคำถามที่เหลือ -->
+        <div class="question-container">
+            <label for="q2">คำถามที่ 2: คุณรู้สึกตื่นเต้นเพียงใดเมื่อคิดว่าจะกลับไปเล่นกีฬา</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q2" oninput="updateOutput('q2Output', this.value)">
+            <span id="q2Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q3">คำถามที่ 3: คุณคิดว่าคุณจะสามารถควบคุมการเล่นกีฬาได้มากเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q3" oninput="updateOutput('q3Output', this.value)">
+            <span id="q3Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q4">คำถามที่ 4: คุณกังวลแค่ไหนที่จะกลับไปเล่นกีฬา</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q4" oninput="updateOutput('q4Output', this.value)">
+            <span id="q4Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q5">คำถามที่ 5: คุณคิดว่าการกลับไปเล่นกีฬาจะทำให้คุณบาดเจ็บอีกหรือไม่</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q5" oninput="updateOutput('q5Output', this.value)">
+            <span id="q5Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q6">คำถามที่ 6: คุณมั่นใจในการเคลื่อนไหวแบบปกติโดยไม่ต้องคิดมากเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q6" oninput="updateOutput('q6Output', this.value)">
+            <span id="q6Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q7">คำถามที่ 7: คุณมั่นใจในการกระโดดและลงพื้นเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q7" oninput="updateOutput('q7Output', this.value)">
+            <span id="q7Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q8">คำถามที่ 8: คุณมั่นใจในการวิ่งและหยุดกระทันหันเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
+            <span id="q8Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q9">คำถามที่ 9: คุณมั่นใจในการวิ่งและเปลี่ยนทิศทางกระทันหันเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
+            <span id="q9Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q10">คำถามที่ 10: คุณมั่นใจในความแข็งแรงของขาของคุณเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
+            <span id="q10Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q11">คำถามที่ 11: คุณรู้สึกมั่นใจในการควบคุมร่างกายระหว่างเล่นกีฬามากแค่ไหน</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
+            <span id="q11Output" class="output">0</span>
+        </div>
+
+        <div class="question-container">
+            <label for="q12">คำถามที่ 12: คุณรู้สึกมั่นใจในการเคลื่อนไหวขณะที่กำลังเปลี่ยนแปลงทิศทางอย่างรวดเร็วเพียงใด</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
+            <span id="q12Output" class="output">0</span>
+        </div>
 
         <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
     </div>
