@@ -234,7 +234,7 @@
                     if (score < 65) {
                         feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
                         imgSrc = 'https://github.com/your-repo/goolf-nama.png'; // Replace with actual image URL
-                    } else if (score <= 80) {
+                    } else if (score >= 65 && score <= 80) {
                         feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
                         imgSrc = 'https://github.com/your-repo/virabhadrasana.png'; // Replace with actual image URL
                     }
