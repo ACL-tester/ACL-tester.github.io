@@ -242,7 +242,7 @@
                     if (score < 65) {
                         feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
                         imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
-                    } else if (score <= 80) {
+                    } else if (score >= 65 && score <= 80) {
                         feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
                         imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
                     }
@@ -250,7 +250,7 @@
                     if (score < 65) {
                         feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
                         imgSrc = 'https://github.com/your-repo/weight-shifting.png'; // Replace with actual image URL
-                    } else if (score <= 80) {
+                    } else if (score >= 65 && score <= 80) {
                         feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
                         imgSrc = 'https://github.com/your-repo/multi-directional-shuttle-run.png'; // Replace with actual image URL
                     }
