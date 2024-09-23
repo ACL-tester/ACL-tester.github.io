@@ -190,19 +190,19 @@
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
         <span id="q8Output" class="output">0</span><br>
 
-        <label for="q9">คำถามที่ 9: คุณรู้สึกกังวลเกี่ยวกับความสามารถในการเล่นกีฬาเพียงใด</label>
+        <label for="q9">คำถามที่ 9: คุณมีความวิตกกังวลเกี่ยวกับการบาดเจ็บซ้ำเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
         <span id="q9Output" class="output">0</span><br>
 
-        <label for="q10">คำถามที่ 10: คุณรู้สึกมั่นใจในการกลับไปเล่นกีฬาเพียงใด</label>
+        <label for="q10">คำถามที่ 10: คุณรู้สึกกลัวที่จะทำกิจกรรมที่ต้องใช้เข่าข้างที่บาดเจ็บเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
         <span id="q10Output" class="output">0</span><br>
 
-        <label for="q11">คำถามที่ 11: คุณกังวลว่าจะได้รับบาดเจ็บซ้ำมากน้อยเพียงใด</label>
+        <label for="q11">คำถามที่ 11: คุณรู้สึกกลัวในการเล่นกีฬาเพราะกลัวการบาดเจ็บซ้ำเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
         <span id="q11Output" class="output">0</span><br>
 
-        <label for="q12">คำถามที่ 12: คุณรู้สึกว่าข้อเข่าของคุณมีความมั่นคงเพียงใด</label>
+        <label for="q12">คำถามที่ 12: คุณคิดว่ามีความเสี่ยงสูงในการบาดเจ็บซ้ำเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
         <span id="q12Output" class="output">0</span><br>
 
@@ -213,21 +213,12 @@
     <div id="resultPage" class="container result-container">
         <h1>ผลการประเมิน</h1>
         <p id="totalScore"></p>
+        <ul id="recommendations"></ul>
     </div>
 
     <script>
-        function acceptPrivacy() {
-            document.getElementById("privacyPage").classList.remove("active");
-            document.getElementById("introPage").classList.add("active");
-        }
-
-        function nextPage() {
-            document.getElementById("introPage").classList.remove("active");
-            document.getElementById("assessmentPage").classList.add("active");
-        }
-
-        function updateOutput(outputId, value) {
-            document.getElementById(outputId).innerText = value;
+        function updateOutput(id, value) {
+            document.getElementById(id).innerText = value;
         }
 
         function showResults() {
@@ -253,10 +244,12 @@
 
             document.getElementById("totalScore").innerText = `คะแนนรวมของคุณคือ: ${totalScore} คะแนน`;
 
+            const recommendations = [];
+            
             if (totalScore >= passingScore) {
-                document.getElementById("totalScore").innerText += " - คุณผ่านการประเมินและสามารถเตรียมตัวกลับไปเล่นกีฬาได้";
+                recommendations.push("คุณผ่านการประเมินและสามารถเตรียมตัวกลับไปเล่นกีฬาได้");
             } else {
-                document.getElementById("totalScore").innerText += " - คุณไม่ผ่านการประเมิน กรุณาทบทวนและทำการออกกำลังกายที่แนะนำ";
+                recommendations.push("คุณไม่ผ่านการประเมิน กรุณาทบทวนและทำการออกกำลังกายที่แนะนำ");
                 
                 // เงื่อนไขสำหรับแต่ละ Domain
                 const emotionScore = scores.slice(0, 3).reduce((acc, score) => acc + score, 0);
@@ -268,23 +261,31 @@
                 const riskPercentage = (riskScore / 200) * 100; // คะแนนเต็มใน Domain: Risk appraisal
 
                 if (emotionPercentage < 65) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Emotion A";
+                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Emotion A");
                 } else if (emotionPercentage >= 65 && emotionPercentage < 80) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Emotion B";
+                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Emotion B");
                 }
 
                 if (confidencePercentage < 65) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Confidence A";
+                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Confidence A");
                 } else if (confidencePercentage >= 65 && confidencePercentage < 80) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Confidence B";
+                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Confidence B");
                 }
 
                 if (riskPercentage < 65) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Risk A";
+                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Risk A");
                 } else if (riskPercentage >= 65 && riskPercentage < 80) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Risk B";
+                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Risk B");
                 }
             }
+
+            const recommendationsList = document.getElementById("recommendations");
+            recommendationsList.innerHTML = ""; // เคลียร์รายการเดิม
+            recommendations.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                recommendationsList.appendChild(li);
+            });
 
             document.getElementById("assessmentPage").classList.remove("active");
             document.getElementById("resultPage").classList.add("show");
