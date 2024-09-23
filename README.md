@@ -17,6 +17,8 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
+            position: relative;
+            overflow: hidden;
         }
 
         h1 {
@@ -128,10 +130,36 @@
                 font-size: 2rem;
             }
         }
+
+        /* Animation for floating circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, 30px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- วงกลมโทนสีในพื้นหลัง -->
+    <div class="circle" style="width: 100px; height: 100px; background-color: #ff7f50; top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="circle" style="width: 80px; height: 80px; background-color: #4682b4; top: 30%; left: 70%; animation-delay: 1s;"></div>
+    <div class="circle" style="width: 60px; height: 60px; background-color: #32cd32; top: 70%; left: 30%; animation-delay: 2s;"></div>
+    <div class="circle" style="width: 120px; height: 120px; background-color: #ffa500; top: 50%; left: 40%; animation-delay: 3s;"></div>
+
     <!-- หน้าแสดงนโยบายความเป็นส่วนตัว -->
     <div id="privacyPage" class="container active">
         <h1>นโยบายความเป็นส่วนตัว</h1>
@@ -178,118 +206,116 @@
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q5" oninput="updateOutput('q5Output', this.value)">
         <span id="q5Output" class="output">0</span><br>
 
-        <label for="q6">คำถามที่ 6: คุณรู้สึกมั่นใจในการวิ่งด้วยความเร็วสูงเพียงใด</label>
+        <label for="q6">คำถามที่ 6: คุณรู้สึกกังวลเกี่ยวกับการเล่นกีฬาเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q6" oninput="updateOutput('q6Output', this.value)">
         <span id="q6Output" class="output">0</span><br>
 
-        <label for="q7">คำถามที่ 7: คุณรู้สึกมั่นใจในการเลี้ยวหรือเปลี่ยนทิศทางอย่างรวดเร็วเพียงใด</label>
+        <label for="q7">คำถามที่ 7: คุณรู้สึกกลัวการบาดเจ็บซ้ำเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q7" oninput="updateOutput('q7Output', this.value)">
         <span id="q7Output" class="output">0</span><br>
 
-        <label for="q8">คำถามที่ 8: คุณมั่นใจว่าจะสามารถออกกำลังกายที่ต้องใช้ขาข้างที่บาดเจ็บได้ดีเพียงใด</label>
+        <label for="q8">คำถามที่ 8: คุณรู้สึกมั่นใจในการกลับมาทำกิจกรรมหลังจากการบาดเจ็บเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
         <span id="q8Output" class="output">0</span><br>
 
-        <label for="q9">คำถามที่ 9: คุณมีความวิตกกังวลเกี่ยวกับการบาดเจ็บซ้ำเพียงใด</label>
+        <label for="q9">คำถามที่ 9: คุณรู้สึกพร้อมที่จะกลับมาทำกีฬาที่เคยเล่นอยู่หรือไม่</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
         <span id="q9Output" class="output">0</span><br>
 
-        <label for="q10">คำถามที่ 10: คุณรู้สึกกลัวที่จะทำกิจกรรมที่ต้องใช้เข่าข้างที่บาดเจ็บเพียงใด</label>
+        <label for="q10">คำถามที่ 10: คุณรู้สึกมั่นใจในการเล่นกีฬาในขณะที่ไม่เจ็บปวดเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
         <span id="q10Output" class="output">0</span><br>
 
-        <label for="q11">คำถามที่ 11: คุณรู้สึกกลัวในการเล่นกีฬาเพราะกลัวการบาดเจ็บซ้ำเพียงใด</label>
+        <label for="q11">คำถามที่ 11: คุณมีความคิดที่จะกลับมาเล่นกีฬาเหมือนเดิมหรือไม่</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
         <span id="q11Output" class="output">0</span><br>
 
-        <label for="q12">คำถามที่ 12: คุณคิดว่ามีความเสี่ยงสูงในการบาดเจ็บซ้ำเพียงใด</label>
+        <label for="q12">คำถามที่ 12: คุณรู้สึกพร้อมที่จะกลับมาทำกีฬาที่คุณชอบไหม</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
         <span id="q12Output" class="output">0</span><br>
 
-        <button class="submit-btn" onclick="showResults()">ส่งแบบประเมิน</button>
+        <button class="submit-btn" onclick="calculateScore()">ส่งคำตอบ</button>
     </div>
 
-    <!-- หน้าแสดงผลลัพธ์ -->
+    <!-- ผลการประเมิน -->
     <div id="resultPage" class="container result-container">
         <h1>ผลการประเมิน</h1>
-        <p id="totalScore"></p>
-        <ul id="recommendations"></ul>
+        <div id="scoreResult"></div>
+        <div id="failConditions"></div>
     </div>
 
     <script>
-        function updateOutput(id, value) {
-            document.getElementById(id).innerText = value;
+        function acceptPrivacy() {
+            document.getElementById("privacyPage").classList.remove("active");
+            document.getElementById("introPage").classList.add("active");
         }
 
-        function showResults() {
-            const scores = [
-                parseInt(document.getElementById("q1").value),
-                parseInt(document.getElementById("q2").value),
-                parseInt(document.getElementById("q3").value),
-                parseInt(document.getElementById("q4").value),
-                parseInt(document.getElementById("q5").value),
-                parseInt(document.getElementById("q6").value),
-                parseInt(document.getElementById("q7").value),
-                parseInt(document.getElementById("q8").value),
-                parseInt(document.getElementById("q9").value),
-                parseInt(document.getElementById("q10").value),
-                parseInt(document.getElementById("q11").value),
-                parseInt(document.getElementById("q12").value)
-            ];
+        function nextPage() {
+            document.getElementById("introPage").classList.remove("active");
+            document.getElementById("assessmentPage").classList.add("active");
+        }
 
-            // คำนวณคะแนนรวมจาก 12 ข้อ
-            const totalScore = scores.reduce((acc, score) => acc + score, 0);
-            const totalPossibleScore = 1200; // คะแนนรวมที่เป็นไปได้ทั้งหมด
-            const passingScore = 0.8 * totalPossibleScore; // 80% ของคะแนนรวม
+        function updateOutput(outputId, value) {
+            document.getElementById(outputId).textContent = value;
+        }
 
-            document.getElementById("totalScore").innerText = `คะแนนรวมของคุณคือ: ${totalScore} คะแนน`;
+        function calculateScore() {
+            let totalScore = 0;
+            let emotionalScore = 0;
+            let confidenceScore = 0;
+            let riskScore = 0;
 
-            const recommendations = [];
-            
-            if (totalScore >= passingScore) {
-                recommendations.push("คุณผ่านการประเมินและสามารถเตรียมตัวกลับไปเล่นกีฬาได้");
-            } else {
-                recommendations.push("คุณไม่ผ่านการประเมิน กรุณาทบทวนและทำการออกกำลังกายที่แนะนำ");
-                
-                // เงื่อนไขสำหรับแต่ละ Domain
-                const emotionScore = scores.slice(0, 3).reduce((acc, score) => acc + score, 0);
-                const confidenceScore = scores.slice(3, 8).reduce((acc, score) => acc + score, 0);
-                const riskScore = scores.slice(8).reduce((acc, score) => acc + score, 0);
+            for (let i = 1; i <= 12; i++) {
+                const score = parseInt(document.getElementById(`q${i}`).value);
+                totalScore += score;
 
-                const emotionPercentage = (emotionScore / 300) * 100; // คะแนนเต็มใน Domain: Emotion
-                const confidencePercentage = (confidenceScore / 500) * 100; // คะแนนเต็มใน Domain: Confidence in performance
-                const riskPercentage = (riskScore / 200) * 100; // คะแนนเต็มใน Domain: Risk appraisal
-
-                if (emotionPercentage < 65) {
-                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Emotion A");
-                } else if (emotionPercentage >= 65 && emotionPercentage < 80) {
-                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Emotion B");
-                }
-
-                if (confidencePercentage < 65) {
-                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Confidence A");
-                } else if (confidencePercentage >= 65 && confidencePercentage < 80) {
-                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Confidence B");
-                }
-
-                if (riskPercentage < 65) {
-                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Risk A");
-                } else if (riskPercentage >= 65 && riskPercentage < 80) {
-                    recommendations.push("แนะนำให้ดูโปรแกรมออกกำลังกาย Risk B");
+                if (i <= 5) {
+                    emotionalScore += score;
+                } else if (i <= 10) {
+                    confidenceScore += score;
+                } else {
+                    riskScore += score;
                 }
             }
 
-            const recommendationsList = document.getElementById("recommendations");
-            recommendationsList.innerHTML = ""; // เคลียร์รายการเดิม
-            recommendations.forEach(item => {
-                const li = document.createElement("li");
-                li.textContent = item;
-                recommendationsList.appendChild(li);
-            });
+            const totalPossibleScore = 1200; // 12 questions * 100 points
+            const percentage = (totalScore / totalPossibleScore) * 100;
+
+            document.getElementById("scoreResult").innerHTML = `
+                <p>คะแนนรวม: ${totalScore} / ${totalPossibleScore} (${percentage.toFixed(2)}%)</p>
+                <p>${percentage >= 80 ? 'ผ่าน' : 'ไม่ผ่าน'}</p>
+            `;
+
+            if (percentage < 80) {
+                document.getElementById("failConditions").innerHTML = `
+                    <h3>เงื่อนไขเพิ่มเติม:</h3>
+                    <ol>
+                        <li>Domain: Emotion</li>
+                        <ul>
+                            <li>คะแนนรวม: ${emotionalScore} / 500 (${((emotionalScore / 500) * 100).toFixed(2)}%)</li>
+                            <li>คะแนนน้อยกว่า 65%: ไปดูโปรแกรมออกกำลังกาย Emotion A</li>
+                            <li>คะแนนระหว่าง 65% ถึง 80%: ไปดูโปรแกรมออกกำลังกาย Emotion B</li>
+                        </ul>
+                        <li>Domain: Confidence in performance</li>
+                        <ul>
+                            <li>คะแนนรวม: ${confidenceScore} / 500 (${((confidenceScore / 500) * 100).toFixed(2)}%)</li>
+                            <li>คะแนนน้อยกว่า 65%: ไปดูโปรแกรมออกกำลังกาย Confidence A</li>
+                            <li>คะแนนระหว่าง 65% ถึง 80%: ไปดูโปรแกรมออกกำลังกาย Confidence B</li>
+                        </ul>
+                        <li>Domain: Risk appraisal</li>
+                        <ul>
+                            <li>คะแนนรวม: ${riskScore} / 200 (${((riskScore / 200) * 100).toFixed(2)}%)</li>
+                            <li>คะแนนน้อยกว่า 65%: ไปดูโปรแกรมออกกำลังกาย Risk A</li>
+                            <li>คะแนนระหว่าง 65% ถึง 80%: ไปดูโปรแกรมออกกำลังกาย Risk B</li>
+                        </ul>
+                    </ol>
+                `;
+            }
 
             document.getElementById("assessmentPage").classList.remove("active");
-            document.getElementById("resultPage").classList.add("show");
+            document.getElementById("resultPage").classList.add("active");
         }
     </script>
 </body>
 </html>
+
