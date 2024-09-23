@@ -231,29 +231,23 @@
                 parseInt(document.getElementById("q10").value),
                 parseInt(document.getElementById("q11").value),
                 parseInt(document.getElementById("q12").value)
-           ];
-    
-    const totalScore = scores.reduce((acc, score) => acc + score, 0);
-    const passingScore = 1200 * 0.8; // 80% ของ 1200 คะแนน
-    let message = "";
+            ];
+            const totalScore = scores.reduce((acc, score) => acc + score, 0);
+            document.getElementById("totalScore").innerText = `คะแนนรวมของคุณคือ: ${totalScore} คะแนน`;
+            document.getElementById("assessmentPage").classList.remove("active");
+            document.getElementById("resultPage").classList.add("show");
+        }
 
-    // เพิ่มเงื่อนไขในการตรวจสอบคะแนนรวม
-    if (totalScore < passingScore) {
-        message = "ท่านไม่ผ่านการประเมินผล ACL-RSI ท่านยังมีความวิตกกังวลอยู่";
-    } else {
-        message = "ท่านผ่านการประเมินผล ACL-RSI ท่านไม่มีความวิตกกังวล ท่านสามารถเตรียมพร้อมเพื่อกลับไปแข่งขันทางกีฬาได้";
-    }
-
-    // แสดงคะแนนรวมและข้อความตามเงื่อนไข
-    document.getElementById("result").innerHTML = `
-        <p>คะแนนรวมของคุณคือ: ${totalScore} คะแนน</p>
-        <p>${message}</p>
-    `;
-    
-    document.getElementById("assessmentPage").classList.remove("active");
-    document.getElementById("resultPage").classList.add("show");
-}
+        function restartAssessment() {
+            document.getElementById("resultPage").classList.remove("show");
+            document.getElementById("assessmentPage").classList.add("active");
+            document.querySelectorAll('.slider').forEach(slider => {
+                slider.value = 0;
+                updateOutput(slider.id + 'Output', 0);
+            });
+        }
     </script>
 </body>
 </html>
+
 
