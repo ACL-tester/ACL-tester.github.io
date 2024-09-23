@@ -216,5 +216,30 @@
                         feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
                         imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
                     } else if (score >= 65 && score <= 80) {
-                        feedback = 'ควรฝึกซ
+                        feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
+                        imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
+                    }
+                } else if (id === 'q11' || id === 'q12') {
+                    if (score < 65) {
+                        feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
+                        imgSrc = 'https://github.com/your-repo/sebt.png'; // Replace with actual image URL
+                    } else if (score >= 65 && score <= 80) {
+                        feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
+                        imgSrc = 'https://github.com/your-repo/shuttle-run.png'; // Replace with actual image URL
+                    }
+                }
 
+                if (feedback) {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.innerHTML = `
+                        <h3>คำถามที่ ${id.slice(-1)} - ${score} คะแนน</h3>
+                        <p>${feedback}</p>
+                        <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
+                    `;
+                    failedQuestions.appendChild(questionDiv);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
