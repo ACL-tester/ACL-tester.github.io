@@ -14,9 +14,10 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* เปลี่ยนเป็น flex-start */
             flex-direction: column;
             min-height: 100vh;
+            overflow-y: auto; /* เพิ่มการเลื่อนแนวตั้ง */
         }
 
         h1 {
@@ -112,10 +113,6 @@
 
         .result-container {
             display: none;
-        }
-
-        .show {
-            display: block;
         }
 
         @media (max-width: 600px) {
@@ -254,40 +251,15 @@
             document.getElementById("totalScore").innerText = `คะแนนรวมของคุณคือ: ${totalScore} คะแนน`;
 
             if (totalScore >= passingScore) {
-                document.getElementById("totalScore").innerText += " - คุณผ่านการประเมินและสามารถเตรียมตัวกลับไปเล่นกีฬาได้";
+                // เพิ่มการแสดงผลลัพธ์ในกรณีที่คะแนนผ่าน
+                document.getElementById("totalScore").innerText += " คุณผ่านการประเมิน";
             } else {
-                document.getElementById("totalScore").innerText += " - คุณไม่ผ่านการประเมิน กรุณาทบทวนและทำการออกกำลังกายที่แนะนำ";
-                
-                // เงื่อนไขสำหรับแต่ละ Domain
-                const emotionScore = scores.slice(0, 3).reduce((acc, score) => acc + score, 0);
-                const confidenceScore = scores.slice(3, 8).reduce((acc, score) => acc + score, 0);
-                const riskScore = scores.slice(8).reduce((acc, score) => acc + score, 0);
-
-                const emotionPercentage = (emotionScore / 300) * 100; // คะแนนเต็มใน Domain: Emotion
-                const confidencePercentage = (confidenceScore / 500) * 100; // คะแนนเต็มใน Domain: Confidence in performance
-                const riskPercentage = (riskScore / 200) * 100; // คะแนนเต็มใน Domain: Risk appraisal
-
-                if (emotionPercentage < 65) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Emotion A";
-                } else if (emotionPercentage >= 65 && emotionPercentage < 80) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Emotion B";
-                }
-
-                if (confidencePercentage < 65) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Confidence A";
-                } else if (confidencePercentage >= 65 && confidencePercentage < 80) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Confidence B";
-                }
-
-                if (riskPercentage < 65) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Risk A";
-                } else if (riskPercentage >= 65 && riskPercentage < 80) {
-                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Risk B";
-                }
+                // เพิ่มการแสดงผลลัพธ์ในกรณีที่คะแนนไม่ผ่าน
+                document.getElementById("totalScore").innerText += " คุณไม่ผ่านการประเมิน";
             }
 
             document.getElementById("assessmentPage").classList.remove("active");
-            document.getElementById("resultPage").classList.add("show");
+            document.getElementById("resultPage").classList.add("active");
         }
     </script>
 </body>
