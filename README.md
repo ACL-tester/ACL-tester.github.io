@@ -135,7 +135,7 @@
 
 <body>
     <!-- หน้าแรก คำชี้แจง -->
-    <div id="introPage" class="container">
+    <div id="introPage" class="container active">
         <h1>คำชี้แจงการใช้งาน</h1>
         <p>ก่อนทำแบบประเมินนี้ท่านจะต้องผ่านเงื่อนไขดังต่อไปนี้คือ:</p>
         <ul style="text-align: left;">
