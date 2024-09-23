@@ -153,92 +153,113 @@
     <!-- แบบประเมิน -->
     <div id="assessmentPage" class="container">
         <h1>แบบประเมิน</h1>
-        <!-- Add all 12 questions -->
-        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label><br>
+        
+        <!-- 12 คำถาม -->
+        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
         <span id="q1Output" class="output">0</span><br>
 
-        <label for="q2">คำถามที่ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label><br>
+        <label for="q2">คำถามที่ 2: คุณคิดว่ามีโอกาสมากน้อยเพียงใดที่จะกลับมาบาดเจ็บซ้ำบริเวณเข่าจากการเล่นกีฬา</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q2" oninput="updateOutput('q2Output', this.value)">
         <span id="q2Output" class="output">0</span><br>
 
-        <!-- Repeat the rest of the questions here -->
+        <label for="q3">คำถามที่ 3: คุณรู้สึกมั่นใจในการลงน้ำหนักบนขาข้างที่บาดเจ็บเพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q3" oninput="updateOutput('q3Output', this.value)">
+        <span id="q3Output" class="output">0</span><br>
 
-        <button class="submit-btn" onclick="showResults()">ดูคะแนน</button>
+        <label for="q4">คำถามที่ 4: คุณมั่นใจในการเคลื่อนไหวเร็วด้วยเข่าข้างที่บาดเจ็บเพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q4" oninput="updateOutput('q4Output', this.value)">
+        <span id="q4Output" class="output">0</span><br>
+
+        <label for="q5">คำถามที่ 5: คุณมั่นใจว่าจะกระโดดและลงจอดด้วยขาข้างที่บาดเจ็บได้เพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q5" oninput="updateOutput('q5Output', this.value)">
+        <span id="q5Output" class="output">0</span><br>
+
+        <label for="q6">คำถามที่ 6: คุณรู้สึกมั่นใจในการวิ่งด้วยความเร็วสูงเพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q6" oninput="updateOutput('q6Output', this.value)">
+        <span id="q6Output" class="output">0</span><br>
+
+        <label for="q7">คำถามที่ 7: คุณรู้สึกมั่นใจในการเลี้ยวหรือเปลี่ยนทิศทางอย่างรวดเร็วเพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q7" oninput="updateOutput('q7Output', this.value)">
+        <span id="q7Output" class="output">0</span><br>
+
+        <label for="q8">คำถามที่ 8: คุณมั่นใจว่าจะสามารถออกกำลังกายที่ต้องใช้ขาข้างที่บาดเจ็บได้ดีเพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
+        <span id="q8Output" class="output">0</span><br>
+
+        <label for="q9">คำถามที่ 9: คุณมั่นใจในการใช้ขาข้างที่บาดเจ็บในการทำกิจกรรมประจำวันได้ดีเพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
+        <span id="q9Output" class="output">0</span><br>
+
+        <label for="q10">คำถามที่ 10: คุณมั่นใจในการใช้ขาข้างที่บาดเจ็บในการทำกิจกรรมกีฬาที่ต้องใช้แรงกระแทกได้เพียงใด</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
+        <span id="q10Output" class="output">0</span><br>
+
+        <label for="q11">คำถามที่ 11: คุณรู้สึกว่าการเล่นกีฬาด้วยขาข้างที่บาดเจ็บจะทำให้บาดเจ็บอีกหรือไม่</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
+        <span id="q11Output" class="output">0</span><br>
+
+        <label for="q12">คำถามที่ 12: คุณรู้สึกว่าความพร้อมทางจิตใจในการกลับไปเล่นกีฬาของคุณเป็นอย่างไร</label>
+        <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
+        <span id="q12Output" class="output">0</span><br>
+
+        <button class="submit-btn" onclick="showResults()">ส่งผลประเมิน</button>
     </div>
 
-    <!-- สรุปคะแนน -->
-    <div id="results" class="result-container">
-        <h2>สรุปคะแนนรวม</h2>
-        <p id="totalScore">คะแนนรวม: 0</p>
-        <div id="failedQuestions">
-            <!-- Failed questions and exercises will be displayed here -->
-        </div>
+    <!-- หน้าผลลัพธ์ -->
+    <div id="resultPage" class="container result-container">
+        <h1>ผลการประเมิน</h1>
+        <div id="result"></div>
+        <button class="submit-btn" onclick="backToChat()">กลับไปที่แชทบอท</button>
     </div>
 
     <script>
         function nextPage() {
-            document.getElementById('introPage').classList.remove('active');
-            document.getElementById('assessmentPage').classList.add('active');
+            document.getElementById("introPage").classList.remove("active");
+            document.getElementById("assessmentPage").classList.add("active");
         }
 
         function updateOutput(id, value) {
-            document.getElementById(id).textContent = value;
+            document.getElementById(id).innerHTML = value;
         }
 
         function showResults() {
-            let totalScore = 0;
-            const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
-            const failedQuestions = document.getElementById('failedQuestions');
-            failedQuestions.innerHTML = '';
-            questionIds.forEach(id => {
-                totalScore += parseInt(document.getElementById(id).value, 10);
-            });
+            const results = [];
 
-            document.getElementById('totalScore').textContent = `คะแนนรวม: ${totalScore}`;
-            document.getElementById('results').classList.add('show');
+            for (let i = 1; i <= 12; i++) {
+                const score = document.getElementById('q' + i).value;
+                results.push(score);
+            }
 
-            questionIds.forEach(id => {
-                const score = parseInt(document.getElementById(id).value, 10);
-                let feedback = '';
-                let imgSrc = '';
+            const resultText = generateResultText(results);
+            document.getElementById("result").innerHTML = resultText;
+            document.getElementById("assessmentPage").classList.remove("active");
+            document.getElementById("resultPage").classList.add("show");
+        }
 
-                if (id === 'q1' || id === 'q2' || id === 'q3' || id === 'q4' || id === 'q5') {
-                    if (score < 65) {
-                        feedback = 'ควรฝึกซ้อม noncontact nonpivot: Imagery + Progressive relaxation, Pawanmuktasana series; Goolf Nama, Goolf Chakra, Poorna Titali, Janu Naman';
-                        imgSrc = 'https://github.com/your-repo/goolf-nama.png'; // Replace with actual image URL
-                    } else if (score >= 65 && score <= 80) {
-                        feedback = 'ควรฝึกซ้อม noncontact pivot: Deep breathing (Nadi Shodhana), Yoga (Virabhadrasana 1, Virabhadrasana 2), Savasana';
-                        imgSrc = 'https://github.com/your-repo/virabhadrasana.png'; // Replace with actual image URL
-                    }
-                } else if (id === 'q6' || id === 'q7' || id === 'q8' || id === 'q9' || id === 'q10') {
-                    if (score < 65) {
-                        feedback = 'ควรฝึกซ้อม: Squat, shuffle, Wall Squat, Skater hop, Hop test, Step up and down, Lateral step up, Pop squat, Bridge, Single leg bridge';
-                        imgSrc = 'https://github.com/your-repo/squat.png'; // Replace with actual image URL
-                    } else if (score >= 65 && score <= 80) {
-                        feedback = 'ควรฝึกซ้อม: Box jump, vertical jump, Lunges to knee jump, Split squat jump, Single leg hop hop stick, Single leg cross over, 180 degree jump, Power step up, Single leg bridge with ball, Hamstring curl on ball';
-                        imgSrc = 'https://github.com/your-repo/box-jump.png'; // Replace with actual image URL
-                    }
-                } else if (id === 'q11' || id === 'q12') {
-                    if (score < 65) {
-                        feedback = 'ควรฝึกซ้อม: Weight shifting, SEBT, Transitional stabilization controlled without impact with dumbbells, Lunges with dumbbells';
-                        imgSrc = 'https://github.com/your-repo/sebt.png'; // Replace with actual image URL
-                    } else if (score >= 65 && score <= 80) {
-                        feedback = 'ควรฝึกซ้อม: Multi-directional shuttle run, Fig of eight, Sumo squat with double dumbbells, Sled drag';
-                        imgSrc = 'https://github.com/your-repo/shuttle-run.png'; // Replace with actual image URL
-                    }
+        function generateResultText(scores) {
+            let text = "";
+            
+            // Loop through each question and check the score
+            for (let i = 0; i < scores.length; i++) {
+                const score = parseInt(scores[i]);
+                const questionNumber = i + 1;
+
+                if (score < 65) {
+                    text += `<p>คำถามที่ ${questionNumber}: คะแนน ${score} - <strong>แนะนำการฝึกซ้อมเบื้องต้น</strong></p>`;
+                } else if (score >= 65 && score <= 80) {
+                    text += `<p>คำถามที่ ${questionNumber}: คะแนน ${score} - <strong>แนะนำการฝึกซ้อมขั้นกลาง</strong></p>`;
+                } else {
+                    text += `<p>คำถามที่ ${questionNumber}: คะแนน ${score} - <strong>สามารถกลับไปเล่นกีฬาได้</strong></p>`;
                 }
+            }
 
-                if (feedback) {
-                    const questionDiv = document.createElement('div');
-                    questionDiv.innerHTML = `
-                        <h3>คำถามที่ ${id.slice(-1)} - ${score} คะแนน</h3>
-                        <p>${feedback}</p>
-                        <img src="${imgSrc}" class="exercise-img" alt="Exercise Image">
-                    `;
-                    failedQuestions.appendChild(questionDiv);
-                }
-            });
+            return text;
+        }
+
+        function backToChat() {
+            // ส่งผลลัพธ์กลับไปที่แชทบอท
+            window.location.href = 'https://line.me/R/ti/p/%40acl-rsi';
         }
     </script>
 </body>
