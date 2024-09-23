@@ -190,40 +190,32 @@
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q8" oninput="updateOutput('q8Output', this.value)">
         <span id="q8Output" class="output">0</span><br>
 
-        <label for="q9">คำถามที่ 9: คุณมั่นใจในการใช้ขาข้างที่บาดเจ็บในการทำกิจกรรมประจำวันได้ดีเพียงใด</label>
+        <label for="q9">คำถามที่ 9: คุณรู้สึกกังวลเกี่ยวกับความสามารถในการเล่นกีฬาเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q9" oninput="updateOutput('q9Output', this.value)">
         <span id="q9Output" class="output">0</span><br>
 
-        <label for="q10">คำถามที่ 10: คุณมั่นใจในการใช้ขาข้างที่บาดเจ็บในการทำกิจกรรมกีฬาหรือไม่</label>
+        <label for="q10">คำถามที่ 10: คุณรู้สึกมั่นใจในการกลับไปเล่นกีฬาเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q10" oninput="updateOutput('q10Output', this.value)">
         <span id="q10Output" class="output">0</span><br>
 
-        <label for="q11">คำถามที่ 11: คุณมั่นใจว่าตนเองสามารถทำกิจกรรมกีฬาที่เคยทำได้ดีเพียงใด</label>
+        <label for="q11">คำถามที่ 11: คุณกังวลว่าจะได้รับบาดเจ็บซ้ำมากน้อยเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q11" oninput="updateOutput('q11Output', this.value)">
         <span id="q11Output" class="output">0</span><br>
 
-        <label for="q12">คำถามที่ 12: คุณมั่นใจว่าตนเองสามารถกลับไปเล่นกีฬาได้ดีเพียงใด</label>
+        <label for="q12">คำถามที่ 12: คุณรู้สึกว่าข้อเข่าของคุณมีความมั่นคงเพียงใด</label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q12" oninput="updateOutput('q12Output', this.value)">
         <span id="q12Output" class="output">0</span><br>
-
-
-        <!-- ใส่คำถามเพิ่มเติมที่เหลือทั้งหมดตามเดิม... -->
 
         <button class="submit-btn" onclick="showResults()">ส่งแบบประเมิน</button>
     </div>
 
-    <!-- ผลลัพธ์ -->
-    <div id="resultPage" class="result-container">
-        <h1>ผลลัพธ์การประเมิน</h1>
+    <!-- หน้าแสดงผลลัพธ์ -->
+    <div id="resultPage" class="container result-container">
+        <h1>ผลการประเมิน</h1>
         <p id="totalScore"></p>
-        <button class="submit-btn" onclick="restartAssessment()">ทำแบบประเมินใหม่</button>
     </div>
 
     <script>
-        function updateOutput(id, value) {
-            document.getElementById(id).innerText = value;
-        }
-
         function acceptPrivacy() {
             document.getElementById("privacyPage").classList.remove("active");
             document.getElementById("introPage").classList.add("active");
@@ -234,26 +226,68 @@
             document.getElementById("assessmentPage").classList.add("active");
         }
 
+        function updateOutput(outputId, value) {
+            document.getElementById(outputId).innerText = value;
+        }
+
         function showResults() {
             const scores = [
                 parseInt(document.getElementById("q1").value),
                 parseInt(document.getElementById("q2").value),
                 parseInt(document.getElementById("q3").value),
-                // เพิ่มคะแนนคำถามอื่น ๆ ตามเดิม
+                parseInt(document.getElementById("q4").value),
+                parseInt(document.getElementById("q5").value),
+                parseInt(document.getElementById("q6").value),
+                parseInt(document.getElementById("q7").value),
+                parseInt(document.getElementById("q8").value),
+                parseInt(document.getElementById("q9").value),
+                parseInt(document.getElementById("q10").value),
+                parseInt(document.getElementById("q11").value),
+                parseInt(document.getElementById("q12").value)
             ];
+
+            // คำนวณคะแนนรวมจาก 12 ข้อ
             const totalScore = scores.reduce((acc, score) => acc + score, 0);
+            const totalPossibleScore = 1200; // คะแนนรวมที่เป็นไปได้ทั้งหมด
+            const passingScore = 0.8 * totalPossibleScore; // 80% ของคะแนนรวม
+
             document.getElementById("totalScore").innerText = `คะแนนรวมของคุณคือ: ${totalScore} คะแนน`;
+
+            if (totalScore >= passingScore) {
+                document.getElementById("totalScore").innerText += " - คุณผ่านการประเมินและสามารถเตรียมตัวกลับไปเล่นกีฬาได้";
+            } else {
+                document.getElementById("totalScore").innerText += " - คุณไม่ผ่านการประเมิน กรุณาทบทวนและทำการออกกำลังกายที่แนะนำ";
+                
+                // เงื่อนไขสำหรับแต่ละ Domain
+                const emotionScore = scores.slice(0, 3).reduce((acc, score) => acc + score, 0);
+                const confidenceScore = scores.slice(3, 8).reduce((acc, score) => acc + score, 0);
+                const riskScore = scores.slice(8).reduce((acc, score) => acc + score, 0);
+
+                const emotionPercentage = (emotionScore / 300) * 100; // คะแนนเต็มใน Domain: Emotion
+                const confidencePercentage = (confidenceScore / 500) * 100; // คะแนนเต็มใน Domain: Confidence in performance
+                const riskPercentage = (riskScore / 200) * 100; // คะแนนเต็มใน Domain: Risk appraisal
+
+                if (emotionPercentage < 65) {
+                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Emotion A";
+                } else if (emotionPercentage >= 65 && emotionPercentage < 80) {
+                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Emotion B";
+                }
+
+                if (confidencePercentage < 65) {
+                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Confidence A";
+                } else if (confidencePercentage >= 65 && confidencePercentage < 80) {
+                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Confidence B";
+                }
+
+                if (riskPercentage < 65) {
+                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Risk A";
+                } else if (riskPercentage >= 65 && riskPercentage < 80) {
+                    document.getElementById("totalScore").innerText += " - ขอแนะนำให้ดูโปรแกรมออกกำลังกาย Risk B";
+                }
+            }
+
             document.getElementById("assessmentPage").classList.remove("active");
             document.getElementById("resultPage").classList.add("show");
-        }
-
-        function restartAssessment() {
-            document.getElementById("resultPage").classList.remove("show");
-            document.getElementById("assessmentPage").classList.add("active");
-            document.querySelectorAll('.slider').forEach(slider => {
-                slider.value = 0;
-                updateOutput(slider.id + 'Output', 0);
-            });
         }
     </script>
 </body>
