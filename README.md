@@ -158,7 +158,7 @@
         <h1>แบบประเมิน</h1>
         
         <!-- 12 คำถาม -->
-        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม "0 :ไม่มั่นใจเลย" </label>
+        <label for="q1">คำถามที่ 1: คุณมั่นใจเพียงใดว่าจะสามารถเล่นกีฬาได้ดีในระดับเดิม "0 :ไม่มั่นใจเลย ,100 :มั่นใจมากที่สุด" </label>
         <input type="range" min="0" max="100" step="10" value="0" class="slider" id="q1" oninput="updateOutput('q1Output', this.value)">
         <span id="q1Output" class="output">0</span><br>
 
